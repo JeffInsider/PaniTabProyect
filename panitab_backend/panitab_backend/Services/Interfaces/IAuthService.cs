@@ -9,6 +9,7 @@ namespace panitab_backend.Services.Interfaces
         Task<ResponseDto<IdentityResult>> CreateUserAsync(CreateUserDto userDto);
         Task<ResponseDto<IdentityResult>> DeleteUserAsync(string userId);
         Task<ResponseDto<LoginResponseDto>> LoginUserAsync(LoginDto dto);
+        Task<ResponseDto<LoginResponseDto>> RefreshTokenAsync(RefreshTokenDto dto);
         Task<ResponseDto<IdentityResult>> UpdateUserAsync(UpdateUserDto userDto);
     }
 }

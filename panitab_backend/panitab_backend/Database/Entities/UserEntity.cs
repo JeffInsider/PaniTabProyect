@@ -31,7 +31,9 @@ namespace panitab_backend.Database.Entities
         [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
-        public string PasswordResetToken { get; set; }
+
+        //esto es para el reseteo de contraseña
+        public string? PasswordResetToken { get; set; }
         public DateTime? PasswordResetTokenExpires { get; set; }
 
     }

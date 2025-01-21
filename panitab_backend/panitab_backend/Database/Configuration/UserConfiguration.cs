@@ -8,8 +8,9 @@ namespace panitab_backend.Database.Configuration
     {
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-            
-            // Configuración de las propiedades de UserEntity
+
+            // Configuración de las propiedades de UserEntity esto es para indicar como se va a mapear la tabla en la base de datos
+            //Tambien aqui se establece todos los parametros y campos de la tabla y es para no hacerlo en la clase UserEntity
             builder.Property(u => u.CreatedDate)
                 .IsRequired()
                 .ValueGeneratedOnAdd()

@@ -25,7 +25,7 @@ namespace panitab_backend.Database
             builder.Entity<IdentityRoleClaim<string>>().ToTable("role_claims");
             builder.Entity<IdentityUserToken<string>>().ToTable("user_tokens");
 
-            // Configuración de las propiedades de UserEntity
+            // Configuración de las propiedades de UserEntity esto va a la clase UserConfiguration
             builder.ApplyConfiguration(new UserConfiguration());
 
             // restriccion de eliminacion en cascada

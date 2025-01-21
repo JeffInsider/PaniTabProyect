@@ -24,13 +24,14 @@ namespace panitab_backend
             services.AddControllers();
             //para usar cors
             services.AddEndpointsApiExplorer();
+            //habilita la documentación de la api
             services.AddSwaggerGen();
             //para acceder a la petición http
             services.AddHttpContextAccessor();
 
             var name = Configuration.GetConnectionString("DefaultConnection");
 
-            //Add DBContext
+            //Add DBContext esto configura la base de datos y la conexion
             services.AddDbContext<PaniTabContext>(options =>
                 options.UseMySql(name, ServerVersion.AutoDetect(name),
                     mySqlOptions => mySqlOptions.SchemaBehavior(MySqlSchemaBehavior.Ignore)));
@@ -69,8 +70,8 @@ namespace panitab_backend
             //Add AutoMapper
             services.AddAutoMapper(typeof(Startup));
 
-        
-            //Configure CORS
+
+            //Configure CORS para acceder desde cualquier origen
             //services.AddCors(options =>
             //{
             //    var allowURLS = Configuration.GetSection("AllowURLS").Get<string[]>();

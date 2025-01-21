@@ -14,6 +14,12 @@ using System.Security.Cryptography;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
+
+//TODO: falta implementar ->
+// verificacion de correo
+// recuperacion de contraseña
+// cerrar sesion
+
 namespace panitab_backend.Services
 {
     public class AuthService : IAuthService
@@ -131,6 +137,7 @@ namespace panitab_backend.Services
         {
             var result = await _signInManager.PasswordSignInAsync
             (
+                //se hace el inicio de sesion con el nombre de usuario y la contraseña
                 dto.UserName,
                 dto.Password,
                 isPersistent: false,
@@ -145,8 +152,9 @@ namespace panitab_backend.Services
                 {
                     new Claim(ClaimTypes.Name, userEntity.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim("UserId", userEntity.Id)
-
+                    new Claim("UserId", userEntity.Id),
+                    //para guardar el email en una claim
+                    new Claim(ClaimTypes.Email, userEntity.Email)
                 };
 
                 var userRoles = await _userManager.GetRolesAsync(userEntity);
@@ -164,12 +172,13 @@ namespace panitab_backend.Services
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     TokenExpiration = token.ValidTo,
                     //guardar refresh token
-                    RefreshToken = this.GenerateRefreshToken(),
+                    RefreshToken = this.GenerateRefreshTokenString(),
                     Roles = userRoles.ToList()
                 };
                 //guardar refresh token
-                responseDto.RefreshToken = this.GenerateRefreshToken();
+                responseDto.RefreshToken = this.GenerateRefreshTokenString();
 
+                //guardar refresh token en la base de datos
                 userEntity.RefreshToken = responseDto.RefreshToken;
                 userEntity.RefreshTokenDate = DateTimeUtils.GetHondurasDateTime().AddMinutes(
                         int.Parse(_configuration["JWT:RefreshTokenExpiriry"]!));
@@ -198,7 +207,7 @@ namespace panitab_backend.Services
         {
             var authSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-            
+
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
@@ -210,8 +219,8 @@ namespace panitab_backend.Services
             return token;
         }
 
-        //generar refresh token
-        private string GenerateRefreshToken()
+        //generar refresh token cuando se inicia sesion
+        private string GenerateRefreshTokenString()
         {
             var randomNumber = new byte[64];
 
@@ -222,6 +231,204 @@ namespace panitab_backend.Services
 
             return Convert.ToBase64String(randomNumber);
         }
+
+        //refrescar token de usuario
+        public async Task<ResponseDto<LoginResponseDto>> RefreshTokenAsync(RefreshTokenDto dto)
+        {
+            string email = "";
+
+            try
+            {
+                _logger.LogInformation($"Token recibido: {dto.Token}");
+                _logger.LogInformation($"RefreshToken recibido: {dto.RefreshToken}");
+                //obtener el token principal
+                var principal = GetTokenPrincipal(dto.Token);
+
+                // Verificar si el principal es nulo
+                if (principal == null)
+                {
+                    _logger.LogWarning("Principal obtenido del token es nulo.");
+                    return new ResponseDto<LoginResponseDto>
+                    {
+                        StatusCode = 400,
+                        Status = false,
+                        Message = "Acceso invalido: Token inválido."
+                    };
+                }
+
+                //obtener la claim de name con url del token
+                //var emailClaim = principal.FindFirst(JwtRegisteredClaimNames.Email);
+                var emailClaim = principal.FindFirst(ClaimTypes.Email);
+
+                //verificar si el claim de email esta vacio
+                if (emailClaim is null)
+                {
+                    _logger.LogWarning("El token no contiene la claim de nombre (ClaimTypes.Name).");
+                    return new ResponseDto<LoginResponseDto>
+                    {
+                        StatusCode = 400,
+                        Status = false,
+                        Message = "Acceso invalido: Token inválido."
+                    };
+                }
+
+                email = emailClaim.Value;
+                _logger.LogInformation($"Email obtenido del token: {email}");
+
+                //buscar el usuario por el email
+                var userEntity = await _userManager.FindByEmailAsync(email);
+
+                //verificar si el usuario existe
+                if (userEntity is null)
+                {
+                    _logger.LogWarning($"No se encontró un usuario con el email: {email}");
+                    return new ResponseDto<LoginResponseDto>
+                    {
+                        StatusCode = 401,
+                        Status = false,
+                        Message = "Acceso invalido: Usuario no encontrado."
+                    };
+                }
+
+                _logger.LogInformation($"RefreshToken en la base de datos: {userEntity.RefreshToken}");
+                //verificar si el refresh token es igual al de la base de datos
+                if (userEntity.RefreshToken != dto.RefreshToken)
+                {
+                    _logger.LogWarning("El RefreshToken no coincide con el de la base de datos.");
+                    return new ResponseDto<LoginResponseDto>
+                    {
+                        StatusCode = 401,
+                        Status = false,
+                        Message = "Acceso invalido: Refresh token inválido."
+                    };
+                }
+
+                //verificar si el refresh token ha expirado
+                if (userEntity.RefreshTokenDate < DateTimeUtils.GetHondurasDateTime())
+                {
+                    _logger.LogWarning("El RefreshToken ha expirado.");
+                    return new ResponseDto<LoginResponseDto>
+                    {
+                        StatusCode = 401,
+                        Status = false,
+                        Message = "Acceso invalido: Refresh token expirado."
+                    };
+                }
+                _logger.LogInformation("Generando un nuevo token y refresh token.");
+
+                List<Claim> authClaims = await GetClaims(userEntity);
+
+                //generar nuevo token y refresh token
+                var jwtToken = GetToken(authClaims);
+
+                
+                var userRoles = await _userManager.GetRolesAsync(userEntity);
+
+                //se crea la respuesta con el nuevo token y la informacion del usuario
+                var loginResponseDto = new LoginResponseDto
+                {
+                    Email = userEntity.Email,
+                    Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
+                    Username = userEntity.UserName,
+                    TokenExpiration = jwtToken.ValidTo,
+                    Roles = userRoles.ToList()
+                };
+
+                //Actualizar el token de actualizacion y la fecha de expiracion
+                loginResponseDto.RefreshToken = this.GenerateRefreshTokenString();
+
+                userEntity.RefreshToken = loginResponseDto.RefreshToken;
+                //se le suma el tiempo de expiracion del refresh token
+                userEntity.RefreshTokenDate = DateTimeUtils.GetHondurasDateTime().AddMinutes(
+                    int.Parse(_configuration["JWT:RefreshTokenExpiriry"]!));
+
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Token refrescado correctamente.");
+
+                //devolver la respuesta con el nuevo token
+                return new ResponseDto<LoginResponseDto>
+                {
+                    StatusCode = 200,
+                    Status = true,
+                    Message = "Token refrescado correctamente.",
+                    Data = loginResponseDto
+                };
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al refrescar el token.");
+                return new ResponseDto<LoginResponseDto>
+                {
+                    StatusCode = 500,
+                    Status = false,
+                    Message = "Error al refrescar el token.",
+                    Data = null
+                };
+            }
+        }
+
+        //obtener el token principal
+        public ClaimsPrincipal GetTokenPrincipal(string token)
+        {
+            var securityKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration.GetSection("JWT:Secret").Value));
+
+            var validation = new TokenValidationParameters
+            {
+                IssuerSigningKey = securityKey,
+                ValidateLifetime = true, //se cambia a true para evitar procesar tokens expirados
+                ValidateActor = false,
+                ValidateAudience = false,
+                ValidateIssuer = false,
+            };
+            return new JwtSecurityTokenHandler().ValidateToken(token, validation, out _);
+        }
+
+        //obtener las claims del usuario
+        public async Task<List<Claim>> GetClaims(UserEntity userEntity)
+        {
+            //crear las claims
+            var authClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, userEntity.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("UserId", userEntity.Id),
+
+            };
+
+            //agregar los roles del usuario
+            var userRoles = await _userManager.GetRolesAsync(userEntity);
+            foreach (var role in userRoles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            return authClaims;
+        }
+
+        //obtener token despues de refrescar
+        public JwtSecurityToken GetToken(List<Claim> authClaims)
+        {
+            var authSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]!));
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JWT:ValidIssuer"],
+                audience: _configuration["JWT:ValidAudience"],
+                expires: DateTimeUtils.GetHondurasDateTime().AddMinutes(
+                    int.Parse(_configuration["JWT:ExpiriryMinutes"]!)),
+                claims: authClaims,
+                signingCredentials: new SigningCredentials(
+                    authSigningKey, SecurityAlgorithms.HmacSha256)
+            );
+
+            return token;
+        }
+
+        //generar string de token despues del refresh
+
+
 
         //editar usuario
         public async Task<ResponseDto<IdentityResult>> UpdateUserAsync(UpdateUserDto userDto)

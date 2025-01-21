@@ -51,6 +51,7 @@ namespace panitab_backend.Database
                         LastName = "Admin",
                         UserName = "admin",
                         Email = "admin@PaniTab.es",
+                        IdentityNumber = "123456789",
                     };
 
                     await userManager.CreateAsync(userAdmin, "Admin01*.");

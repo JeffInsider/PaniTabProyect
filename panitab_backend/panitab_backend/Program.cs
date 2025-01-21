@@ -4,10 +4,12 @@ using panitab_backend;
 using panitab_backend.Database;
 using panitab_backend.Database.Entities;
 
+// crea un contructor para configurar la aplicacion
 var builder = WebApplication.CreateBuilder(args);
 
 var startup = new Startup(builder.Configuration);
 
+//registra todos los servicios de la clase startup
 startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
@@ -21,9 +23,11 @@ using (var scope = app.Services.CreateScope())
 
     try
     {
+        //iniciar el contexto de la base de datos
         var context = services.GetRequiredService<PaniTabContext>();
         var userManager = services.GetRequiredService<UserManager<UserEntity>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        //para inicializar la base de datos con datos iniciales
         await PaniTabSeeder.LoadDataAsync(userManager, roleManager, context, loggerFactory);
     }
     catch (Exception e)
@@ -33,4 +37,5 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+//corre la aplicacion
 app.Run();

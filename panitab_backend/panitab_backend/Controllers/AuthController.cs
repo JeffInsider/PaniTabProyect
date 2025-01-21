@@ -46,5 +46,51 @@ namespace panitab_backend.Controllers
             }
             return BadRequest(ModelState);
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<ResponseDto<LoginResponseDto>>> LoginUserAsync([FromBody] LoginDto model)
+        {
+            var authResponse = await _authService.LoginUserAsync(model);
+            return StatusCode(authResponse.StatusCode, authResponse);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<ResponseDto<LoginResponseDto>>> RefreshTokenAsync([FromBody] RefreshTokenDto dto)
+        {
+            var loginResponseDto = await _authService.RefreshTokenAsync(dto);
+
+            return StatusCode(loginResponseDto.StatusCode, new
+            {
+                Status = true,
+                loginResponseDto.Message,
+                loginResponseDto.Data
+            });
+        }
+
+        [HttpPut("update")]
+        public async Task<ActionResult<ResponseDto<UpdateUserDto>>> UpdateUserAsync([FromBody] UpdateUserDto model)
+        {
+            var response = await _authService.UpdateUserAsync(model);
+
+            if (response.Status)
+            {
+                return Ok(new { Message = response.Message });
+            }
+
+            return BadRequest(new { Message = response.Message, Errors = response.Data.Errors });
+        }
+
+        [HttpDelete("delete")]
+        public async Task<ActionResult<ResponseDto<string>>> DeleteUserAsync(string userId)
+        {
+            var response = await _authService.DeleteUserAsync(userId);
+
+            if (response.Status)
+            {
+                return Ok(new { Message = response.Message });
+            }
+
+            return BadRequest(new { Message = response.Message });
+        }
     }
 }
