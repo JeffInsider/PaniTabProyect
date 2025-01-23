@@ -22,6 +22,10 @@ namespace panitab_backend.Helpers
             CreateMap<LoginResponseDto, UserEntity>();
             CreateMap<UserEntity, LoginResponseDto>();
             CreateMap<LoginDto, LoginResponseDto>();
+
+            //mapear de UserEntity a UserDto
+            CreateMap<UserDto, UserEntity>();
+            CreateMap<UserEntity, UserDto>();
         }
     }
 }

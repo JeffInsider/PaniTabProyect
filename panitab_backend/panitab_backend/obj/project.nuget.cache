@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m/rT7GEM6/o=",
+  "dgSpecHash": "/qBRYhXDI0I=",
   "success": true,
-  "projectFilePath": "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
+  "projectFilePath": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "panitab_backend.Controllers.AuthController",
+    "Method": "GetUsersAsync",
+    "RelativePath": "api/auth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.AuthController",
+    "Method": "GetUserByIdAsync",
+    "RelativePath": "api/auth/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.AuthController",
     "Method": "DeleteUserAsync",
     "RelativePath": "api/auth/delete",
     "HttpMethod": "DELETE",

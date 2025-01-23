@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj": {}
+    "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj": {}
   },
   "projects": {
-    "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj": {
+    "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
+        "projectUniqueName": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
         "projectName": "panitab_backend",
-        "projectPath": "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
+        "projectPath": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\panitab_backend.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\ProyectoPanitab\\panitab_backend\\panitab_backend\\obj\\",
+        "outputPath": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

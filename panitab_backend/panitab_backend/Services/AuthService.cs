@@ -57,6 +57,49 @@ namespace panitab_backend.Services
             _USER_ID = idClaim?.Value;
         }
 
+        //consultar usuario por id
+        public async Task<ResponseDto<UserDto>> GetUserByIdAsync(string userId)
+        {
+            var userEntity = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (userEntity == null)
+            {
+                return new ResponseDto<UserDto>
+                {
+                    StatusCode = 404,
+                    Status = false,
+                    Message = "Usuario no encontrado.",
+                    Data = null
+                };
+            }
+
+            var userDto = _mapper.Map<UserDto>(userEntity);
+
+            return new ResponseDto<UserDto>
+            {
+                StatusCode = 200,
+                Status = true,
+                Message = "Usuario encontrado.",
+                Data = userDto
+            };
+        }
+
+        //consultar todos los usuarios
+        public async Task<ResponseDto<List<UserDto>>> GetUsersAsync()
+        {
+            var userEntities = await _context.Users.ToListAsync();
+
+            var userDtos = _mapper.Map<List<UserDto>>(userEntities);
+
+            return new ResponseDto<List<UserDto>>
+            {
+                StatusCode = 200,
+                Status = true,
+                Message = "Usuarios encontrados.",
+                Data = userDtos
+            };
+        }
+
         //registrar usuario
         public async Task<ResponseDto<IdentityResult>> CreateUserAsync(CreateUserDto userDto)
         {

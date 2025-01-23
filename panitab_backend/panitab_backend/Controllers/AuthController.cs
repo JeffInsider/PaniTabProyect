@@ -31,6 +31,32 @@ namespace panitab_backend.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetUsersAsync()
+        {
+            var response = await _authService.GetUsersAsync();
+
+            if (response.Status)
+            {
+                return Ok(response);
+            }
+
+            return BadRequest(response);
+        }
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserByIdAsync(string userId)
+        {
+            var response = await _authService.GetUserByIdAsync(userId);
+
+            if (response.Status)
+            {
+                return Ok(response);
+            }
+
+            return BadRequest(response);
+        }
+
         [HttpPost("register")]
         public async Task<ActionResult<ResponseDto<CreateUserDto>>> CreateUserAsync([FromBody] CreateUserDto model)
         {
