@@ -254,7 +254,10 @@ namespace panitab_backend.Services
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddHours(2),
+                expires: DateTimeUtils.GetHondurasDateTime().AddMinutes(
+                    int.Parse(_configuration["JWT:ExpiriryMinutes"]!)),
+
+                //expires: DateTime.Now.AddHours(1),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(
                     authSigningKey, SecurityAlgorithms.HmacSha256)
@@ -285,7 +288,7 @@ namespace panitab_backend.Services
                 _logger.LogInformation($"Token recibido: {dto.Token}");
                 _logger.LogInformation($"RefreshToken recibido: {dto.RefreshToken}");
                 //obtener el token principal
-                var principal = GetTokenPrincipal(dto.Token);
+                var principal = GetTokenPrincipal(dto.Token!); //se niega para evitar que sea nulo
 
                 // Verificar si el principal es nulo
                 if (principal == null)

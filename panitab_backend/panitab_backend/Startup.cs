@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -83,6 +84,19 @@ namespace panitab_backend
             //            .AllowAnyHeader()
             //            .AllowAnyOrigin());
             //});
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.WithOrigins(Configuration["FrontendURL"])
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowCredentials()
+                           .SetIsOriginAllowedToAllowWildcardSubdomains()
+                           .WithExposedHeaders("Content-Disposition");
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -100,7 +114,7 @@ namespace panitab_backend
 
             app.UseCors("CorsPolicy");
 
-            app.UseAuthentication();
+            app.UseAuthentication(); //usar autenticación antes de autorización
 
             app.UseHttpsRedirection();
 

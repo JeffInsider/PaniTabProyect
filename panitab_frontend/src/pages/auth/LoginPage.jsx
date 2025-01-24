@@ -1,12 +1,12 @@
-import axios from "axios";
 import { useContext, useState } from "react"
 import { FiEyeOff } from "react-icons/fi";
 import { LuEye } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { AuthContext } from "../../context";
-import logo from "../../images/logo.png";
 
+//Hacer importacion manual de axios ya que se creo un archivo de axios personalizado
+import axios from "../../api/axios";
 
 export const LoginPage = () => {
 
@@ -45,7 +45,6 @@ export const LoginPage = () => {
                     },
                 }
             );
-
             console.log("exito", response.data);
             if (response.data && response.data.data && response.data.data.token) {
                 //va a guardar el token en el localstorage y el contexto
@@ -201,7 +200,7 @@ const WavesContainer = styled.div`
   &::after {
     content: "";
     position: absolute;
-    top: 80%;
+    top: 0%;
     left: 0%;
     right: 0;
     bottom: 0;
@@ -209,24 +208,6 @@ const WavesContainer = styled.div`
     background-size: 10%; 
     opacity: 0.9; 
     z-index: 0; 
-  }
-`;
-// Inputs con efecto
-export const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  background: transparent;
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-
-  &:focus {
-    border-color: #00ffff;
-    box-shadow: 0 0 10px #00ffff;
   }
 `;
 

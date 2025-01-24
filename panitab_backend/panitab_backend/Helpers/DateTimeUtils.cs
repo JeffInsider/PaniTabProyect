@@ -8,7 +8,7 @@
         public static DateTime GetHondurasDateTime()
         {
             DateTime dateTime = DateTime.UtcNow;
-            DateTime hondurasDateTime = TimeZoneInfo.ConvertTime(dateTime, HondurasTimeZone);
+            DateTime hondurasDateTime = TimeZoneInfo.ConvertTimeFromUtc(dateTime, HondurasTimeZone);
             return hondurasDateTime;
         }
     }
