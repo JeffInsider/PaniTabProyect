@@ -5,6 +5,7 @@ import ModuleButton from "../../components/buttons/ModuleButton";
 import StatsWidget from "../../components/StatsWidget";
 import Footer from "../../components/Footer";
 import { useState } from "react";
+import SiderBar from "../../components/Sidebar";
 
 const HomePage = () => {
     const [showUserMenu, setShowUserMenu] = useState(false);
@@ -13,6 +14,7 @@ const HomePage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
+            
             <div className="max-w-7xl mx-auto">
                 <Header 
                     title="Pani Tab" 
@@ -52,6 +54,12 @@ const HomePage = () => {
                         />
                         <ModuleButton
                             title="Reportes"
+                            description="Visualización de gráficos e indicadores clave."
+                            icon={FaChartBar}
+                            onClick={() => console.log("Ir a Reportes")}
+                        />
+                        <ModuleButton
+                            title="Usuarios"
                             description="Visualización de gráficos e indicadores clave."
                             icon={FaChartBar}
                             onClick={() => console.log("Ir a Reportes")}

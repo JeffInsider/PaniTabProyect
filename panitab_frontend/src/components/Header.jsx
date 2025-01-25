@@ -1,33 +1,80 @@
-import { FaUserCircle } from "react-icons/fa";
+import { FaBars, FaUserCircle } from "react-icons/fa";
 import logo from "../images/logo.png";
 import { HiOutlineLogout } from "react-icons/hi";
+import { MdInbox, MdLogout, MdMail, MdNotifications, MdPerson, MdRedeem } from "react-icons/md";
+import { useEffect, useRef } from "react";
 
-const Header = ({ title, userName, userEmail, showUserMenu, setShowUserMenu }) => {
+const Header = ({ title, userName, userEmail, setShowSidebar, showUserMenu, setShowUserMenu }) => {
+    const userMenuRef = useRef();
+
+    //cerrar el menú de usuario al hacer click fuera de él
+    useEffect(() => {
+        const handleClickedOutside = (e) => {
+            if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+                setShowUserMenu(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickedOutside);
+        return () => document.removeEventListener("mousedown", handleClickedOutside);
+    }, [setShowUserMenu]);
+
     return (
-        <header className="bg-gray-700 text-white p-6 flex justify-between items-center shadow-md relative">
-            <div className="flex items-center">
-                <img 
-                    src="../images/logo.png" 
-                    alt="Company Logo" 
-                    className="h-14 w-14 mr-3 rounded-full border-2 border-red-500"
-                />
-            </div>
-            <h1 className="text-2xl font-bold text-center flex-grow tracking-wider">{title}</h1>
-            <div className="relative">
-                <div 
-                    className="flex items-center gap-3 cursor-pointer" 
-                    onClick={() => setShowUserMenu(!showUserMenu)}
+        <header className="bg-[#f7f4f0] shadow-md fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3">
+            {/* Botón de menú */}
+            <div className="flex items-center space-x-4">
+                <button
+                    onClick={() => setShowSidebar((prev) => !prev)}
+                    className="text-[#5a3825] text-2xl focus:outline-none"
                 >
-                    <FaUserCircle className="text-4xl text-red-500" />
+                    <FaBars />
+                </button>
+                <img
+                    src={logo}
+                    alt="Company Logo"
+                    className="h-10 w-10 rounded-full border-2 border-[#e0d6cc]"
+                />
+                <h1 className="font-bold text-lg text-[#5a3825]">{title}</h1>
+            </div>
+
+            {/* Notificaciones y usuario */}
+            <div className="relative flex items-center space-x-6">
+                {/* Notificaciones */}
+                <MdNotifications className="text-2xl text-[#5a3825] cursor-pointer" />
+                <MdMail className="text-2xl text-[#5a3825] cursor-pointer" />
+
+                {/* Menú de usuario */}
+                <div className="relative flex items-center space-x-2">
+                    <FaUserCircle
+                        className="text-4xl text-gray-700 cursor-pointer"
+                        onClick={() => setShowUserMenu(!showUserMenu)}
+                    />
+                    <span
+                        className="text-gray-700 font-semibold cursor-pointer"
+                        onClick={() => setShowUserMenu(!showUserMenu)}
+                    >
+                        {userName}
+                    </span>
+                    {showUserMenu && (
+                        <div
+                            ref={userMenuRef}
+                            className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-lg w-72 p-4 border z-50"
+                        >
+                            <div className="flex flex-col items-center">
+                                <FaUserCircle className="text-8xl text-gray-700 mb-3" />
+                                <p className="font-bold text-gray-800 mb-1">{userName}</p>
+                                <p className="text-sm text-[#8a8a8a] mb-3">{userEmail}</p>
+                            </div>
+                            <div className="flex flex-col w-full">
+                                <button className="flex items-center p-2 hover:bg-[#f7f4f0] text-[#5a3825]">
+                                    <MdPerson className="mr-2 text-xl" /> Ver Perfil
+                                </button>
+                                <button className="flex items-center p-2 hover:bg-[#f7f4f0] text-red-600">
+                                    <MdLogout className="mr-2 text-xl" /> Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                {showUserMenu && (
-                    <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg w-64 p-4 border">
-                        <p className="font-bold text-gray-800 mb-1">{userName}</p>
-                        <p className="text-sm text-gray-600 mb-3">{userEmail}</p>
-                        <button className="text-blue-500 text-sm mb-2">Ver Perfil</button>
-                        <button className="text-red-500 text-sm">Cerrar Sesión</button>
-                    </div>
-                )}
             </div>
         </header>
     );

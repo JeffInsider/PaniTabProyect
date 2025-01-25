@@ -98,8 +98,7 @@
               "RelativeToolTip": "panitab_backend\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-21T18:38:27.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T18:38:27.622Z"
             },
             {
               "$type": "Document",
@@ -111,8 +110,7 @@
               "RelativeToolTip": "panitab_backend\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T19:51:54.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-11T19:51:54.904Z"
             },
             {
               "$type": "Document",
@@ -124,8 +122,7 @@
               "RelativeToolTip": "panitab_backend\\Startup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T17:02:58.391Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-11T17:02:58.391Z"
             },
             {
               "$type": "Document",
@@ -133,9 +130,9 @@
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "panitab_backend\\Services\\AuthService.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\AuthService.cs*",
-              "RelativeToolTip": "panitab_backend\\Services\\AuthService.cs*",
-              "ViewState": "AgIAAJkBAAAAAAAAAAAlwK4BAAA5AAAAAAAAAA==",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\AuthService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAK4BAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-11T20:59:29.995Z",
               "EditorCaption": ""
@@ -150,8 +147,7 @@
               "RelativeToolTip": "panitab_backend\\Helpers\\DateTimeUtils.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T20:33:51.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-12T20:33:51.347Z"
             },
             {
               "$type": "Document",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "panitab_backend\\Helpers\\AutoMapperProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T22:02:18.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T22:02:18.918Z"
             },
             {
               "$type": "Document",
@@ -176,8 +171,7 @@
               "RelativeToolTip": "panitab_backend\\Database\\PaniTabContext.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAowCoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T16:04:34.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T16:04:34.477Z"
             },
             {
               "$type": "Document",
@@ -189,8 +183,7 @@
               "RelativeToolTip": "panitab_backend\\Database\\PaniTabSeeder.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T16:54:05.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T16:54:05.185Z"
             },
             {
               "$type": "Document",
@@ -202,8 +195,7 @@
               "RelativeToolTip": "panitab_backend\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAmwGwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T21:21:10.626Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-12T21:21:10.626Z"
             },
             {
               "$type": "Document",
