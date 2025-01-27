@@ -72,7 +72,8 @@ export const LoginPage = () => {
         <WavesContainer>
             <div className="bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-8 z-10 flex flex-col items-center">
                 <div className="text-center mb-1">
-                    <h1 className="text-4xl font-bold mb-4">Bienvenido a PaniTab Beta</h1>
+                    <h1 className="text-4xl font-bold mb-4">PaniTab Beta</h1>
+                    <img src="/src/images/logo.png" alt="Logo" className="w-32 h-32 mx-auto" />
                 </div>
                 <div className="w-full ">
                     <h2 className="text-2xl font-bold mb-2 text-center">Inicie Sesion</h2>
@@ -135,7 +136,7 @@ export const LoginPage = () => {
                             <button 
                                 type="submit" 
                                 className="w-80 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 
-                                            rounded focus:outline-none focus:shadow-outline">
+                                            rounded-xl focus:outline-none focus:shadow-outline">
                                 Iniciar Sesion
                             </button>
                         </div>
@@ -175,7 +176,7 @@ const wave = keyframes`
 const WavesContainer = styled.div`
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle, #b2f0e6, #9ad9db, #79b8d1, #5b9ac1);
+  background: radial-gradient(circle, #f9e6cf, #f4d7b3, #e6b985, #d6a66e);
   background-size: 300% 300%;
   animation: ${wave} 12s ease infinite;
   min-height: 100vh;
@@ -190,7 +191,7 @@ const WavesContainer = styled.div`
     left: 50%;
     width: 500px;
     height: 500px;
-    background: rgba(0, 255, 255, 0.3);
+    background: rgba(255, 229, 204, 0.4);
     filter: blur(150px);
     transform: translate(-50%, -50%);
     border-radius: 50%;
@@ -200,14 +201,15 @@ const WavesContainer = styled.div`
   &::after {
     content: "";
     position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0;
-    bottom: 0;
-    background: url("/src/images/logo.png") no-repeat ;
-    background-size: 10%; 
-    opacity: 0.9; 
-    z-index: 0; 
+    top: 20%;
+    left: 20%;
+    width: 300px;
+    height: 300px;
+    /*background: url("/src/images/logo.png") no-repeat center;*/
+    background-size: contain;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    z-index: 0;
   }
 `;
 

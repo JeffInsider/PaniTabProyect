@@ -1,30 +1,43 @@
 import { FaUserCircle, FaWarehouse, FaClipboardList, FaChartBar, FaIndustry, FaBox } from "react-icons/fa";
 import Header from "../../components/Header";
-import HeroSection from "../../components/HeroSection";
+import HeroSection from "../../components/home/HeroSection";
 import ModuleButton from "../../components/buttons/ModuleButton";
-import StatsWidget from "../../components/StatsWidget";
-import Footer from "../../components/Footer";
+
 import { useState } from "react";
-import SiderBar from "../../components/Sidebar";
+import SidebarHome from "../../components/home/SideBarHome";
 
 const HomePage = () => {
+    const [showSidebar, setShowSidebar] = useState(true);
     const [showUserMenu, setShowUserMenu] = useState(false);
     const userName = "John Doe";
     const userEmail = "jon@";
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
+        <div className="flex h-screen">
+            {/* Sidebar */}
+            <SidebarHome showSidebar={showSidebar}/>
+
             
-            <div className="max-w-7xl mx-auto">
-                <Header 
-                    title="Pani Tab" 
-                    userName={userName} 
-                    userEmail={userEmail} 
-                    showUserMenu={showUserMenu} 
-                    setShowUserMenu={setShowUserMenu} 
+            {/* Contenedor principal */}
+            <div
+                className="flex-1 flex flex-col"
+            >
+                {/* Header */}
+                <Header
+                    title="Pani Tab"
+                    userName={userName}
+                    userEmail={userEmail}
+                    setShowSidebar={setShowSidebar}
+                    showUserMenu={showUserMenu}
+                    setShowUserMenu={setShowUserMenu}
+                    showSidebar={showSidebar}
                 />
 
-                <main className="p-8 space-y-10">
+                {/* Contenido Principal */}
+                <div className="container overflow-auto mx-auto p-2 pt-3 md:p-3 lg:p-4 flex-1">
+                <main
+                    className="flex-1 space-y-10 transition-all duration-300"
+                >
                     <HeroSection userName={userName} />
 
                     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
@@ -60,18 +73,14 @@ const HomePage = () => {
                         />
                         <ModuleButton
                             title="Usuarios"
-                            description="Visualización de gráficos e indicadores clave."
-                            icon={FaChartBar}
-                            onClick={() => console.log("Ir a Reportes")}
+                            description="Gestión de roles y accesos de usuario."
+                            icon={FaUserCircle}
+                            onClick={() => console.log("Ir a Usuarios")}
                         />
                     </section>
-
-                    <StatsWidget />
                 </main>
-
-                
+                </div>
             </div>
-            <Footer />
         </div>
     );
 };

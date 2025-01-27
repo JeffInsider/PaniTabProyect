@@ -4,7 +4,15 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { MdInbox, MdLogout, MdMail, MdNotifications, MdPerson, MdRedeem } from "react-icons/md";
 import { useEffect, useRef } from "react";
 
-const Header = ({ title, userName, userEmail, setShowSidebar, showUserMenu, setShowUserMenu }) => {
+const Header = ({ 
+    title, 
+    userName, 
+    userEmail, 
+    showSidebar, 
+    showUserMenu, 
+    setShowUserMenu,
+    setShowSidebar,
+}) => {
     const userMenuRef = useRef();
 
     //cerrar el menú de usuario al hacer click fuera de él
@@ -19,21 +27,22 @@ const Header = ({ title, userName, userEmail, setShowSidebar, showUserMenu, setS
     }, [setShowUserMenu]);
 
     return (
-        <header className="bg-[#f7f4f0] shadow-md fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-3">
-            {/* Botón de menú */}
-            <div className="flex items-center space-x-4">
+        <header
+            className="bg-[#f7f4f0] p-4 flex justify-between sm:mb-1"
+        >
+        
+            <div className="flex items-center ">
+                {/* Icono de menú */}
                 <button
                     onClick={() => setShowSidebar((prev) => !prev)}
                     className="text-[#5a3825] text-2xl focus:outline-none"
                 >
                     <FaBars />
                 </button>
-                <img
-                    src={logo}
-                    alt="Company Logo"
-                    className="h-10 w-10 rounded-full border-2 border-[#e0d6cc]"
-                />
-                <h1 className="font-bold text-lg text-[#5a3825]">{title}</h1>
+                {/* Logo y Título */}
+                <div className={`flex items-center`}>
+                    <h1 className="font-bold text-lg text-[#5a3825] ml-4">{title}</h1>
+                </div>
             </div>
 
             {/* Notificaciones y usuario */}
