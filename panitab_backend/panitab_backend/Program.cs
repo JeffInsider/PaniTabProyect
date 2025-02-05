@@ -28,7 +28,7 @@ using (var scope = app.Services.CreateScope())
         var userManager = services.GetRequiredService<UserManager<UserEntity>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         //para inicializar la base de datos con datos iniciales
-        await PaniTabSeeder.LoadDataAsync(userManager, roleManager, context, loggerFactory);
+        await PaniTabSeeder.LoadDataAsync(context, loggerFactory, userManager, roleManager);
     }
     catch (Exception e)
     {

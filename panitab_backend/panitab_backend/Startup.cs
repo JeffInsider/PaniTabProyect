@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using panitab_backend.Database;
 using panitab_backend.Database.Entities;
+using panitab_backend.Helpers;
 using panitab_backend.Services;
 using panitab_backend.Services.Interfaces;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
@@ -30,16 +31,21 @@ namespace panitab_backend
             //para acceder a la petición http
             services.AddHttpContextAccessor();
 
-            var name = Configuration.GetConnectionString("DefaultConnection");
 
-            //Add DBContext esto configura la base de datos y la conexion
+            //var name = Configuration.GetConnectionString("DefaultConnection");
+
+            ////Add DBContext esto configura la base de datos y la conexion
+            //services.AddDbContext<PaniTabContext>(options =>
+            //    options.UseMySql(name, ServerVersion.AutoDetect(name),
+            //        mySqlOptions => mySqlOptions.SchemaBehavior(MySqlSchemaBehavior.Ignore)));
+
+            // add deContext para la conexion de la base de datos
             services.AddDbContext<PaniTabContext>(options =>
-                options.UseMySql(name, ServerVersion.AutoDetect(name),
-                    mySqlOptions => mySqlOptions.SchemaBehavior(MySqlSchemaBehavior.Ignore)));
-
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Add costum services
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IAuditService, AuditService>();
 
             //Add Identity
             services.AddIdentity<UserEntity, IdentityRole>(options =>
@@ -47,6 +53,19 @@ namespace panitab_backend
                 options.SignIn.RequireConfirmedAccount = false;
             }).AddEntityFrameworkStores<PaniTabContext>()
             .AddDefaultTokenProviders();
+
+            //Registrar TokenValidationParameters
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidAudience = Configuration["JWT:ValidAudience"],
+                ValidIssuer = Configuration["JWT:ValidIssuer"],
+                ClockSkew = TimeSpan.Zero,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+            };
+            services.AddSingleton(tokenValidationParameters);
 
             //Add authentication
             services.AddAuthentication(options =>
@@ -58,18 +77,23 @@ namespace panitab_backend
             {
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = Configuration["JWT:ValidAudience"],
-                    ValidIssuer = Configuration["JWT:ValidIssuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                };
+                options.TokenValidationParameters = tokenValidationParameters;
+                //options.TokenValidationParameters = new TokenValidationParameters
+                //{
+                //    ValidateIssuer = true,
+                //    ValidateAudience = true,
+                //    ValidAudience = Configuration["JWT:ValidAudience"],
+                //    ValidIssuer = Configuration["JWT:ValidIssuer"],
+                //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                //};
             });
 
+            services.AddAuthorization();
+            //Utilizado para la validacion con identity en audit
+            services.AddHttpContextAccessor();
+
             //Add AutoMapper
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(AutoMapperProfile));
 
 
             //Configure CORS para acceder desde cualquier origen
@@ -85,17 +109,23 @@ namespace panitab_backend
             //            .AllowAnyOrigin());
             //});
 
-            services.AddCors(options =>
+            services.AddCors(opt =>
             {
-                options.AddPolicy("CorsPolicy", builder =>
-                {
-                    builder.WithOrigins(Configuration["FrontendURL"])
-                           .AllowAnyHeader()
-                           .AllowAnyMethod()
-                           .AllowCredentials()
-                           .SetIsOriginAllowedToAllowWildcardSubdomains()
-                           .WithExposedHeaders("Content-Disposition");
-                });
+                var allowURLS = Configuration.GetSection("AllowURLS").Get<string[]>();
+                opt.AddPolicy("CorsPolicy", builder => builder
+                .WithOrigins(allowURLS)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+                //options.AddPolicy("CorsPolicy", builder =>
+                //{
+                //    builder.WithOrigins(Configuration["FrontendURL"])
+                //           .AllowAnyHeader()
+                //           .AllowAnyMethod()
+                //           .AllowCredentials()
+                //           .SetIsOriginAllowedToAllowWildcardSubdomains()
+                //           .WithExposedHeaders("Content-Disposition");
+                //});
             });
         }
 
@@ -109,14 +139,13 @@ namespace panitab_backend
                 app.UseSwaggerUI();
             }
 
+            app.UseHttpsRedirection();
             //para rutas mas rapidas
             app.UseRouting();
 
             app.UseCors("CorsPolicy");
 
             app.UseAuthentication(); //usar autenticación antes de autorización
-
-            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

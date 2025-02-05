@@ -17,6 +17,10 @@ module.exports = {
 
 npm install react-router-dom
 npm install styled-components react-icons
+npm install zustand
+npm install jwt-decode
+npm install yup
+npm install formik
 
 
 

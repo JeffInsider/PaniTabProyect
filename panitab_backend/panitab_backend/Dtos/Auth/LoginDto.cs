@@ -4,9 +4,13 @@ namespace panitab_backend.Dtos.Auth
 {
     public class LoginDto
     {
-        [Display(Name = "Nombre de usuario")]
+        //[Display(Name = "Nombre de usuario")]
+        //[Required(ErrorMessage = "El {0} es obligatorio")]
+        //public string UserName { get; set; }
+        [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "El {0} es obligatorio")]
-        public string UserName { get; set; }
+        public string Email { get; set; }
+        
 
         [Display(Name = "Contraseña")]
         [Required(ErrorMessage = "La {0} es obligatoria")]
