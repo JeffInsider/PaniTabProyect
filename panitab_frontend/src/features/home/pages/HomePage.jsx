@@ -1,12 +1,9 @@
 import { FaUserCircle, FaWarehouse, FaClipboardList, FaChartBar, FaIndustry, FaBox } from "react-icons/fa";
-
 import HeroSection from "../components/HeroSection";
 import ModuleButton from "../components/buttons/ModuleButton";
-
 import { useState } from "react";
 import SidebarHome from "../components/SidebarHome";
 import Header from "../../../shared/components/Header";
-
 
 const HomePage = () => {
     const [showSidebar, setShowSidebar] = useState(true);
@@ -24,9 +21,6 @@ const HomePage = () => {
             >
                 {/* Header */}
                 <Header
-                    title="Pani Tab"
-                    userName="Usuario"
-                    userEmail="User@"
                     setShowSidebar={setShowSidebar}
                     showUserMenu={showUserMenu}
                     setShowUserMenu={setShowUserMenu}
@@ -38,7 +32,7 @@ const HomePage = () => {
                 <main
                     className="flex-1 space-y-10 transition-all duration-300"
                 >
-                    <HeroSection userName="usuario" />
+                    <HeroSection/>
 
                     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                         <ModuleButton

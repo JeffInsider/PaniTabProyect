@@ -3,22 +3,17 @@ import { MdLogout, MdMail, MdNotifications, MdPerson } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 import { useAuthStore } from "../../features/security/store";
 
-const Header = ({ 
-    title, 
-    userName, 
-    userEmail, 
-    showUserMenu, 
-    setShowUserMenu,
-    setShowSidebar,
-}) => {
+const Header = ({ showUserMenu, setShowUserMenu,setShowSidebar,}) => {
     const userMenuRef = useRef();
     const logout = useAuthStore((state) => state.logout);
     const [showModal, setShowModal] = useState(false);
+    const {user, init} = useAuthStore();
 
-    const handleLogout = () => {
-        logout();
-    };
-
+    //llamar al init para obtener los datos del usuario
+    useEffect(() => {
+        init();
+    }, [init]);
+    
     //cerrar el menú de usuario al hacer click fuera de él
     useEffect(() => {
         const handleClickedOutside = (e) => {
@@ -55,7 +50,7 @@ const Header = ({
                     </button>
                     {/* Logo y Título */}
                     <div className={`flex items-center`}>
-                        <h1 className="font-bold text-lg text-[#5a3825] ml-4">{title}</h1>
+                        <h1 className="font-bold text-lg text-[#5a3825] ml-4">PaniTab</h1>
                     </div>
                 </div>
 
@@ -75,7 +70,7 @@ const Header = ({
                             className="text-gray-700 font-semibold cursor-pointer"
                             onClick={() => setShowUserMenu(!showUserMenu)}
                         >
-                            {userName}
+                            {user?.fullName.split(" ")[0] ?? "Usuario"}
                         </span>
                         {showUserMenu && (
                             <div
@@ -84,8 +79,8 @@ const Header = ({
                             >
                                 <div className="flex flex-col items-center">
                                     <FaUserCircle className="text-8xl text-gray-700 mb-3" />
-                                    <p className="font-bold text-gray-800 mb-1">{userName}</p>
-                                    <p className="text-sm text-[#8a8a8a] mb-3">{userEmail}</p>
+                                    <p className="font-bold text-gray-800 mb-1">{user?.fullName}</p>
+                                    <p className="text-sm text-[#8a8a8a] mb-3">{user?.email}</p>
                                 </div>
                                 <div className="flex flex-col w-full">
                                     <button className="flex items-center p-2 hover:bg-[#f7f4f0] text-[#5a3825]">

@@ -12,6 +12,22 @@ export const useAuthStore = create((set, get) => ({ // el set es para modificar 
     error: false,
     // se va a restablecer cada vez que se recargue la pagina
 
+    //init solo se ejecuta una vez cuando se carga la pagina
+    init: () => {
+        const storedUser = localStorage.getItem('user');
+        const storedToken = localStorage.getItem('token');
+        const storedRefreshToken = localStorage.getItem('refreshToken');
+
+        if (storedToken && storedRefreshToken){
+            set({
+                user: storedUser ? JSON.parse(storedUser) : null,
+                token: storedToken,
+                refreshToken: storedRefreshToken,
+                isAuthenticated: true,
+            });
+        }
+    },
+
     login: async (form) => {
         console.log("Form Values:", form); // Verifica si los valores están llegando
         const {status, data, message} = await loginAsync(form);
