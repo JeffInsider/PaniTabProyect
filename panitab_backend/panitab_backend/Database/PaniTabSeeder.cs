@@ -42,6 +42,7 @@ namespace panitab_backend.Database
                     await roleManager.CreateAsync(new IdentityRole(RolesConstant.STORE));
                     await roleManager.CreateAsync(new IdentityRole(RolesConstant.CHECKER));
                     await roleManager.CreateAsync(new IdentityRole(RolesConstant.OFFICE));
+                    await roleManager.CreateAsync(new IdentityRole(RolesConstant.REPORTS));
                 }
 
                 if (!await userManager.Users.AnyAsync())

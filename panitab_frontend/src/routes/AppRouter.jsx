@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { ProtectedLayout } from "../shared/components/ProtectedLayout";
 import { SecurityRouter } from "../features/security/routes";
 import { HomeRouter } from "../features/home/routes/HomeRouter";
+import { UserRouter } from "../features/users/routes/UserRouter";
 
 //Despues de hacer los auth este archivo es para toda la navegacion de la aplicacion usando rutas privadas y publicas
 export const AppRouter = () => {
@@ -13,6 +14,7 @@ export const AppRouter = () => {
             {/* Rutas protegidas */}
             <Route element={<ProtectedLayout />}>
                 <Route path="/home/*" element={<HomeRouter />} />
+                <Route path="/users/*" element={<UserRouter />} />
             </Route>
 
             {/* Rutas de seguridad */}

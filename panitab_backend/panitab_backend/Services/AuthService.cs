@@ -231,7 +231,13 @@ namespace panitab_backend.Services
         public async Task<ResponseDto<LoginResponseDto>> RegisterAsync(CreateUserDto dto)
         {
             //verificar si el rol es valido
-            var validRoles = new List<string> { RolesConstant.ADMIN, RolesConstant.STORE, RolesConstant.CHECKER, RolesConstant.OFFICE };
+            var validRoles = new List<string> 
+            { 
+                RolesConstant.ADMIN, 
+                RolesConstant.STORE, 
+                RolesConstant.CHECKER, 
+                RolesConstant.OFFICE, 
+                RolesConstant.REPORTS };
 
             if (!validRoles.Contains(dto.Role))
             {

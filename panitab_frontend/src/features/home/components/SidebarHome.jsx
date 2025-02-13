@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import StatsWidget from "./StatsWidget";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUsers } from "react-icons/fa";
 import logo from "../../../images/logo.png";
+import { useNavigate } from "react-router-dom";
 
 
 const SidebarHome = ({showSidebar}) => {
+    const navigate = useNavigate();
     return (
         <div 
         className={`${
@@ -26,6 +28,18 @@ const SidebarHome = ({showSidebar}) => {
                             <StatsWidget />
                         </ul>
                     </nav>
+
+                    <div className="flex flex-col w-full">
+                        <button
+                            className="flex items-center gap-3 w-full p-3 mt-6 text-[#5a3825] 
+                            hover:bg-[#f7f4f0] rounded-lg transition duration-300"
+                            onClick={() => navigate("/users")}
+                        >
+                            <FaUsers className="text-xl" />
+                            <span className="text-md font-semibold">Usuarios</span>
+
+                        </button>
+                    </div>
                 </div>
             )}
         </div>

@@ -2,12 +2,14 @@ import { FaBars, FaUserCircle } from "react-icons/fa";
 import { MdLogout, MdMail, MdNotifications, MdPerson } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 import { useAuthStore } from "../../features/security/store";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ showUserMenu, setShowUserMenu,setShowSidebar,}) => {
     const userMenuRef = useRef();
     const logout = useAuthStore((state) => state.logout);
     const [showModal, setShowModal] = useState(false);
     const {user, init} = useAuthStore();
+    const navigate = useNavigate();
 
     //llamar al init para obtener los datos del usuario
     useEffect(() => {
@@ -81,11 +83,17 @@ const Header = ({ showUserMenu, setShowUserMenu,setShowSidebar,}) => {
                                     <FaUserCircle className="text-8xl text-gray-700 mb-3" />
                                     <p className="font-bold text-gray-800 mb-1">{user?.fullName}</p>
                                     <p className="text-sm text-[#8a8a8a] mb-3">{user?.email}</p>
+                                    <p className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded-lg">
+                                        {useAuthStore.getState().roles[0] ?? "Sin rol"}
+                                    </p>
                                 </div>
                                 <div className="flex flex-col w-full">
-                                    <button className="flex items-center p-2 hover:bg-[#f7f4f0] text-[#5a3825]">
+                                    {/*<button 
+                                        className="flex items-center p-2 hover:bg-[#f7f4f0] text-[#5a3825]"
+                                        onClick={() => navigate("/users/profile")}
+                                    >
                                         <MdPerson className="mr-2 text-xl" /> Ver Perfil
-                                    </button>
+                                    </button>*/}
                                     <button 
                                         className="flex items-center p-2 hover:bg-[#f7f4f0] text-red-600"
                                         onClick={openModal}

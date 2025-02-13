@@ -21,10 +21,10 @@ const HomePage = () => {
             >
                 {/* Header */}
                 <Header
+                    showSidebar={showSidebar}
                     setShowSidebar={setShowSidebar}
                     showUserMenu={showUserMenu}
                     setShowUserMenu={setShowUserMenu}
-                    showSidebar={showSidebar}
                 />
 
                 {/* Contenido Principal */}
@@ -65,12 +65,7 @@ const HomePage = () => {
                             icon={FaChartBar}
                             onClick={() => console.log("Ir a Reportes")}
                         />
-                        <ModuleButton
-                            title="Usuarios"
-                            description="Gestión de roles y accesos de usuario."
-                            icon={FaUserCircle}
-                            onClick={() => console.log("Ir a Usuarios")}
-                        />
+                        
                     </section>
                 </main>
                 </div>

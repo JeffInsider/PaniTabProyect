@@ -12,7 +12,7 @@ using panitab_backend.Database;
 namespace panitab_backend.Migrations
 {
     [DbContext(typeof(PaniTabContext))]
-    [Migration("20250201193709_init")]
+    [Migration("20250212222030_init")]
     partial class init
     {
         /// <inheritdoc />
