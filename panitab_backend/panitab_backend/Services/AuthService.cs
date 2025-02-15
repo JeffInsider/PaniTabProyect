@@ -19,7 +19,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 //TODO: falta implementar ->
 // verificacion de correo
 // recuperacion de contraseña
-// cerrar sesion
 
 namespace panitab_backend.Services
 {
@@ -30,12 +29,6 @@ namespace panitab_backend.Services
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthService> _logger;
         private readonly PaniTabContext _context;
-        //private readonly IMapper _mapper;
-        //private readonly JwtSettings
-
-        //para saber si ya esta logeado
-        //private readonly HttpContext _httpContext;
-        //private readonly string _USER_ID;
 
         public AuthService(
             SignInManager<UserEntity> signInManager,
@@ -44,19 +37,12 @@ namespace panitab_backend.Services
             ILogger<AuthService> logger,
             PaniTabContext context
             )
-        //IMapper mapper, 
-        //IHttpContextAccessor httpContextAccessor)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _configuration = configuration;
             _logger = logger;
             _context = context;
-            //_mapper = mapper;
-            //_httpContext = httpContextAccessor.HttpContext;
-            //var idClaim = _httpContext.User.Claims.Where(x => x.Type == "UserId")
-            //    .FirstOrDefault();
-            //_USER_ID = idClaim?.Value;
         }
 
         public string GetUserId()
@@ -67,6 +53,30 @@ namespace panitab_backend.Services
         //login de usuario
         public async Task<ResponseDto<LoginResponseDto>> LoginAsync(LoginDto dto)
         {
+            //buscar el usuario antes de hacer el login
+            var userEntity = await _userManager.FindByEmailAsync(dto.Email);
+
+            if (userEntity == null)
+            {
+                return new ResponseDto<LoginResponseDto>
+                {
+                    Status = false,
+                    StatusCode = 401,
+                    Message = "Usuario no encontrado"
+                };
+            }
+
+            //bloquear el usuario si esta inactivo
+            if (!userEntity.IsActive)
+            {
+                return new ResponseDto<LoginResponseDto>
+                {
+                    Status = false,
+                    StatusCode = 403,
+                    Message = "Usuario inactivo"
+                };
+            }
+
             var result = await _signInManager
                 .PasswordSignInAsync(dto.Email,
                                      dto.Password,
@@ -76,17 +86,18 @@ namespace panitab_backend.Services
             if (result.Succeeded)
             {
                 //generar el token
-                var userEntity = await _userManager.FindByEmailAsync(dto.Email);
+                //var userEntity = await _userManager.FindByEmailAsync(dto.Email);
 
-                if (userEntity == null)
-                {
-                    return new ResponseDto<LoginResponseDto>
-                    {
-                        Status = false,
-                        StatusCode = 401,
-                        Message = "Usuario no encontrado"
-                    };
-                }
+                //if (userEntity == null)
+                //{
+                //    return new ResponseDto<LoginResponseDto>
+                //    {
+                //        Status = false,
+                //        StatusCode = 401,
+                //        Message = "Usuario no encontrado"
+                //    };
+                //}
+
                 //claimlist para el usuario
                 List<Claim> authClaims = await GetClaims(userEntity);
 
@@ -228,83 +239,83 @@ namespace panitab_backend.Services
         }
 
         //Registrar usuario
-        public async Task<ResponseDto<LoginResponseDto>> RegisterAsync(CreateUserDto dto)
-        {
-            //verificar si el rol es valido
-            var validRoles = new List<string> 
-            { 
-                RolesConstant.ADMIN, 
-                RolesConstant.STORE, 
-                RolesConstant.CHECKER, 
-                RolesConstant.OFFICE, 
-                RolesConstant.REPORTS };
+        //public async Task<ResponseDto<LoginResponseDto>> RegisterAsync(CreateUserDto dto)
+        //{
+        //    //verificar si el rol es valido
+        //    var validRoles = new List<string> 
+        //    { 
+        //        RolesConstant.ADMIN, 
+        //        RolesConstant.STORE, 
+        //        RolesConstant.CHECKER, 
+        //        RolesConstant.OFFICE, 
+        //        RolesConstant.REPORTS };
 
-            if (!validRoles.Contains(dto.Role))
-            {
-                return new ResponseDto<LoginResponseDto>
-                {
-                    StatusCode = 400,
-                    Status = false,
-                    Message = "Rol invalido"
-                };
-            }
+        //    if (!validRoles.Contains(dto.Role))
+        //    {
+        //        return new ResponseDto<LoginResponseDto>
+        //        {
+        //            StatusCode = 400,
+        //            Status = false,
+        //            Message = "Rol invalido"
+        //        };
+        //    }
 
-            var user = new UserEntity
-            {
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                UserName = dto.Email,
-                Email = dto.Email,
-            };
+        //    var user = new UserEntity
+        //    {
+        //        FirstName = dto.FirstName,
+        //        LastName = dto.LastName,
+        //        UserName = dto.Email,
+        //        Email = dto.Email,
+        //    };
 
-            var result = await _userManager.CreateAsync(user, dto.Password);
+        //    var result = await _userManager.CreateAsync(user, dto.Password);
 
-            if (result.Succeeded)
-            {
-                var userEntity = await _userManager.FindByEmailAsync(dto.Email);
+        //    if (result.Succeeded)
+        //    {
+        //        var userEntity = await _userManager.FindByEmailAsync(dto.Email);
 
-                //asignar rol
-                await _userManager.AddToRoleAsync(userEntity, dto.Role);
+        //        //asignar rol
+        //        await _userManager.AddToRoleAsync(userEntity, dto.Role);
 
-                var authClaims = await GetClaims(userEntity);
+        //        var authClaims = await GetClaims(userEntity);
 
-                var jwtToken = GetToken(authClaims);
+        //        var jwtToken = GetToken(authClaims);
 
-                var refreshToken = GenerateRefreshTokenString();
-                _logger.LogInformation($"RefreshToken generado: {refreshToken}");
+        //        var refreshToken = GenerateRefreshTokenString();
+        //        _logger.LogInformation($"RefreshToken generado: {refreshToken}");
 
-                userEntity.RefreshToken = refreshToken;
-                userEntity.RefreshTokenExpire = DateTime.Now.AddMinutes(
-                    int.Parse(_configuration["JWT:RefreshTokenExpire"] ?? "30"));
+        //        userEntity.RefreshToken = refreshToken;
+        //        userEntity.RefreshTokenExpire = DateTime.Now.AddMinutes(
+        //            int.Parse(_configuration["JWT:RefreshTokenExpire"] ?? "30"));
 
-                _context.Entry(userEntity);
-                await _context.SaveChangesAsync();
+        //        _context.Entry(userEntity);
+        //        await _context.SaveChangesAsync();
 
-                return new ResponseDto<LoginResponseDto>
-                {
-                    StatusCode = 200,
-                    Status = true,
-                    Message = "Usuario registrado correctamente.",
-                    Data = new LoginResponseDto
-                    {
-                        FullName = $"{userEntity.FirstName} {userEntity.LastName}",
-                        Email = userEntity.Email,
-                        Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
-                        TokenExpiration = jwtToken.ValidTo,
-                        RefreshToken = refreshToken
-                    }
-                };
-            }
+        //        return new ResponseDto<LoginResponseDto>
+        //        {
+        //            StatusCode = 200,
+        //            Status = true,
+        //            Message = "Usuario registrado correctamente.",
+        //            Data = new LoginResponseDto
+        //            {
+        //                FullName = $"{userEntity.FirstName} {userEntity.LastName}",
+        //                Email = userEntity.Email,
+        //                Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
+        //                TokenExpiration = jwtToken.ValidTo,
+        //                RefreshToken = refreshToken
+        //            }
+        //        };
+        //    }
 
-            return new ResponseDto<LoginResponseDto>
-            {
-                StatusCode = 400,
-                Status = false,
-                Message = "Error al registrar el usuario"
-            };
+        //    return new ResponseDto<LoginResponseDto>
+        //    {
+        //        StatusCode = 400,
+        //        Status = false,
+        //        Message = "Error al registrar el usuario"
+        //    };
 
 
-        }
+        //}
 
         public ClaimsPrincipal GetTokenPrincipal(string token)
         {

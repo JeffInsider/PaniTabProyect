@@ -3,4 +3,5 @@ export const rolesListConstant = {
     STORE: 'STORE',
     CHECKER: 'CHECKER',
     OFFICE: 'OFFICE',
+    REPORTS: 'REPORTS',
 };

@@ -2,8 +2,8 @@ import { FaUserCircle, FaWarehouse, FaClipboardList, FaChartBar, FaIndustry, FaB
 import HeroSection from "../components/HeroSection";
 import ModuleButton from "../components/buttons/ModuleButton";
 import { useState } from "react";
-import SidebarHome from "../components/SidebarHome";
 import Header from "../../../shared/components/Header";
+import { SidebarHome } from "../components/SidebarHome";
 
 const HomePage = () => {
     const [showSidebar, setShowSidebar] = useState(true);

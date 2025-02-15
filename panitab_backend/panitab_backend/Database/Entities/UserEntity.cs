@@ -19,8 +19,8 @@ namespace panitab_backend.Database.Entities
         //[Column("identity_number")]
         //public string IdentityNumber { get; set; }
 
-        //[Column("is_inactive")]
-        //public bool IsInactive { get; set; }
+        [Column("is_active")]
+        public bool IsActive { get; set; } = true;
 
         [Column("refresh_token")]
         [StringLength(450)]
@@ -28,23 +28,6 @@ namespace panitab_backend.Database.Entities
 
         [Column("refresh_token_expire")]
         public DateTime RefreshTokenExpire { get; set; }
-
-        //por si se ocupa
-        //[Column("refresh_token")]
-        //[StringLength(300)]
-        //public string? RefreshToken { get; set; }
-
-        //[Column("refresh-token-date", TypeName = "datetime")]
-        //public DateTime RefreshTokenDate { get; set; }
-
-        //[PersonalData]
-        //[Column(TypeName = "datetime")]
-        //public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-
-
-        ////esto es para el reseteo de contraseña
-        //public string? PasswordResetToken { get; set; }
-        //public DateTime? PasswordResetTokenExpires { get; set; }
 
     }
 }

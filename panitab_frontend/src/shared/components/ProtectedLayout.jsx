@@ -15,7 +15,9 @@ export const ProtectedLayout = () => {
         rolesListConstant.ADMIN, 
         rolesListConstant.OFFICE, 
         rolesListConstant.CHECKER, 
-        rolesListConstant.STORE].includes(role)
+        rolesListConstant.STORE,
+        rolesListConstant.REPORTS,
+      ].includes(role)
     )){
       return <Navigate to="/security/login" />
     }

@@ -37,6 +37,7 @@ namespace panitab_backend.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     first_name = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
                     last_name = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    is_active = table.Column<bool>(type: "bit", nullable: false),
                     refresh_token = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     refresh_token_expire = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

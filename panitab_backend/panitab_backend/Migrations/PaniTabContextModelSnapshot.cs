@@ -182,6 +182,10 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(70)")
                         .HasColumnName("first_name");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(70)

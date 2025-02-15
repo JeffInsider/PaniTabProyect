@@ -18,6 +18,7 @@ export const LoginPage = () => {
     
     //
     const [showPassword, setShowPassword] = useState(false);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
     //
     
     const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -31,7 +32,19 @@ export const LoginPage = () => {
         if (isAuthenticated) {
           navigate("/home");
         }
-      }, [isAuthenticated]);
+    }, [isAuthenticated]);
+
+    // mostrar el mensaje de error despues de 3 segundos
+    useEffect(() => {
+        if (error) {
+            setShowErrorMessage(true);
+            const timer = setTimeout(() => {
+                setShowErrorMessage(false);
+                useAuthStore.setState({ message:"", error: false });
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [error]);
 
       
     const formik = useFormik({
@@ -61,7 +74,7 @@ export const LoginPage = () => {
 
     return (
         <WavesContainer>
-            {error ? (
+            {showErrorMessage && error ? ( // Mostrar el mensaje de error si showErrorMessage es true y error es true
                 <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50">
                     <div className="bg-red-500 text-white text-center py-2 px-4 rounded-lg shadow-md animate-fade">
                     {message}

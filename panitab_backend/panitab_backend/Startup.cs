@@ -46,6 +46,7 @@ namespace panitab_backend
             //Add costum services
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IAuditService, AuditService>();
+            services.AddTransient<IUsersService, UsersService>();
 
             //Add Identity
             services.AddIdentity<UserEntity, IdentityRole>(options =>
@@ -78,14 +79,6 @@ namespace panitab_backend
                 options.SaveToken = true;
                 options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = tokenValidationParameters;
-                //options.TokenValidationParameters = new TokenValidationParameters
-                //{
-                //    ValidateIssuer = true,
-                //    ValidateAudience = true,
-                //    ValidAudience = Configuration["JWT:ValidAudience"],
-                //    ValidIssuer = Configuration["JWT:ValidIssuer"],
-                //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                //};
             });
 
             services.AddAuthorization();
@@ -95,20 +88,6 @@ namespace panitab_backend
             //Add AutoMapper
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
-
-            //Configure CORS para acceder desde cualquier origen
-            //services.AddCors(options =>
-            //{
-            //    var allowURLS = Configuration.GetSection("AllowURLS").Get<string[]>();
-
-            //    options.AddPolicy("CorsPolicy",
-            //        builder => builder
-            //            .WithOrigins(allowURLS)
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            .AllowAnyOrigin());
-            //});
-
             services.AddCors(opt =>
             {
                 var allowURLS = Configuration.GetSection("AllowURLS").Get<string[]>();
@@ -117,15 +96,6 @@ namespace panitab_backend
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials());
-                //options.AddPolicy("CorsPolicy", builder =>
-                //{
-                //    builder.WithOrigins(Configuration["FrontendURL"])
-                //           .AllowAnyHeader()
-                //           .AllowAnyMethod()
-                //           .AllowCredentials()
-                //           .SetIsOriginAllowedToAllowWildcardSubdomains()
-                //           .WithExposedHeaders("Content-Disposition");
-                //});
             });
         }
 

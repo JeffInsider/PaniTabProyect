@@ -11,6 +11,8 @@ export const loginAsync = async (form) => {
         //manejar bien el error
         if (error?.response?.status === 401) {
             return { ...error?.response?.data, message: 'Correo o contraseña incorrectos' };
+        }else if (error?.response?.status === 403) {
+            return { ...error?.response?.data, message: 'El Usuario esta inactivo comuniquese con el administrador' };
         }
 
         // Para otros errores (por ejemplo, servidor caído o problemas de red)
