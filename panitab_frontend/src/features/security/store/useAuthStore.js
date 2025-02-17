@@ -27,6 +27,7 @@ export const useAuthStore = create((set, get) => ({ // el set es para modificar 
             });
         }
     },
+    //
 
     login: async (form) => {
         console.log("Form Values:", form); // Verifica si los valores están llegando

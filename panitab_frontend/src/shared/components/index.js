@@ -1,4 +1,5 @@
 export * from "./Loading";
-export * from "./ProtectedRoute";
+export * from "./ProtectedLayout";
 export * from "./Header";
 export * from "./SideBar";
+export * from "./ProtectedComponent";
