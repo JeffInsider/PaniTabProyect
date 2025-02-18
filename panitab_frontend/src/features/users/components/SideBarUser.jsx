@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../../images/logo.png";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUsers } from "react-icons/fa";
 import { SideBar } from "../../../shared/components/SideBar";
 
 export const SideBarUser = ({showSidebar}) => {
@@ -8,7 +8,7 @@ export const SideBarUser = ({showSidebar}) => {
     const options = [
             {
                 label: "Usuarios",
-                icon: FaHome,
+                icon: FaUsers,
                 path: "/users"
             },
             

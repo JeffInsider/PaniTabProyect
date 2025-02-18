@@ -11,7 +11,7 @@ export const SideBar = ({title, options = [], showSidebar, isHome, children}) =>
             className={`${
                 showSidebar ? "w-56" : "w-0"
             } bg-white shadow-lg h-screen transition-all duration-300 ease-in-out 
-            flex flex-col items-center overflow-hidden`}
+            flex flex-col items-center overflow-hidden `}
         >
             {showSidebar && (
                 <div className="p-5 pt-8 flex flex-col h-full items-center">

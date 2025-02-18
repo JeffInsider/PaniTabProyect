@@ -1,5 +1,7 @@
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { ProtectedComponent } from "../../../shared/components/ProtectedComponent";
+import { rolesListConstant } from "../../../shared/constants/roles-list.constants";
 
 export const UserRow = ({ user }) => {
     return (
@@ -21,11 +23,15 @@ export const UserRow = ({ user }) => {
                     )}
                 </div>
             </td>
+            
             <td className="px-10 py-4 whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-800 transition duration-200 ease-in-out">
-                <Link to={`/users/${user.id}`}>
-                    <FiEdit className="text-xl" />
-                </Link>
+                <ProtectedComponent requiredRoles={[rolesListConstant.ADMIN]}>
+                    <Link to={`/users/${user.id}`}>
+                        <FiEdit className="w-5 h-5" />
+                    </Link>
+                </ProtectedComponent>
             </td>
+
         </tr>
     ); 
 };

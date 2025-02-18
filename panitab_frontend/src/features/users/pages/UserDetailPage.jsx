@@ -37,6 +37,7 @@ export const UserDetailPage = () => {
                 }
             }
 
+            //aquí se actualiza el estado del usuario
             setUser(selectedUser);
             setLoading(false);
         };
@@ -118,13 +119,13 @@ export const UserDetailPage = () => {
     return (
         <div className="flex h-screen">
             {showConfirmation && (
-    <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full">
-        <div className="bg-green-500 text-white text-center py-3 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-2">
-            <FaCheckCircle className="w-5 h-5" />
-            <span>{message}</span>
-        </div>
-    </div>
-)}
+                <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full">
+                    <div className="bg-green-500 text-white text-center py-3 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-2">
+                        <FaCheckCircle className="w-5 h-5" />
+                        <span>{message}</span>
+                    </div>
+                </div>
+            )}
             <SideBarUser showSidebar={showSidebar} />
             <div className="flex-1 flex flex-col">
                 <Header
@@ -135,7 +136,7 @@ export const UserDetailPage = () => {
                 />
                 <div className="p-6">
                     <h2 className="text-2xl font-bold mb-4">Actualizar Usuario</h2>
-                    <UserForm user={user} onSubmit={handleUpdateUser} loading={loading}/>
+                    <UserForm user={user} onSubmit={handleUpdateUser} loading={loading} isCreate={false}/>
                     <UserActiveStatus
                         isActive={user.isActive}
                         onToggleStatus={() => handleUpdateStatus(user.id, user.isActive)}

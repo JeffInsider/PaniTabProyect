@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Users\\UserDto.cs",
               "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Users\\UserDto.cs",
               "RelativeToolTip": "panitab_backend\\Dtos\\Users\\UserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-14T22:02:36.733Z",
               "EditorCaption": ""
@@ -87,8 +87,7 @@
               "RelativeToolTip": "panitab_backend\\Services\\UsersService.cs",
               "ViewState": "AgIAAEwBAAAAAAAAAAAuwGABAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T16:08:47.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T16:08:47.196Z"
             },
             {
               "$type": "Document",

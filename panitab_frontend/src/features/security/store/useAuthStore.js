@@ -26,6 +26,8 @@ export const useAuthStore = create((set, get) => ({ // el set es para modificar 
                 isAuthenticated: true,
             });
         }
+
+        //get().validateAuthentication();
     },
     //
 
