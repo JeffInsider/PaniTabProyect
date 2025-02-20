@@ -10,103 +10,15 @@ import { SideBarUser } from "../components/SideBarUser";
 import Header from "../../../shared/components/Header";
 import { UserActiveStatus } from "../components/UserActiveStatus";
 import { FaCheckCircle } from "react-icons/fa";
+import { useLayout } from "../../../shared/hooks/useLayout";
+import { useUserDetail } from "../hooks/useUserDetail";
+import { NotificationCard } from "../../../shared/components/NotificationCard";
 
 export const UserDetailPage = () => {
-    const [showSidebar, setShowSidebar] = useState(true);
-    const [showUserMenu, setShowUserMenu] = useState(false);
-    const { userId } = useParams();
-    const {users, updateUserInStore, addUserToStore} = useUserStore();
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); //controlar el estado de carga
-    const [showConfirmation, setShowConfirmation] = useState(false); // Para mostrar el mensaje de confirmación
-    const [message, setMessage] = useState(""); // El mensaje de confirmación
+    const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
+    const {user, loading, handleUpdateUser, handleUpdateStatus, notification} = useUserDetail();
     const navigate = useNavigate();
 
-    // Cargar el usuario al cargar la página
-    useEffect(() => {
-        const fetchUser = async () => {
-            let selectedUser = users.find((u) => u.id === userId);
-
-            //si se borra el usuario del store, se vuelve a buscar
-            if (!selectedUser) {
-                selectedUser = await getUserById(userId); // Si no está en el store, buscar en API
-                console.log("Se busco el usuario");
-                if (selectedUser) {
-                    addUserToStore(selectedUser); // Guardarlo en el store
-                    console.log("Se agrego el usuario al store");
-                }
-            }
-
-            //aquí se actualiza el estado del usuario
-            setUser(selectedUser);
-            setLoading(false);
-        };
-
-        fetchUser();
-    }, [userId, users, addUserToStore]);
-
-    // Función para actualizar el usuario
-    const handleUpdateUser = async (formValues) => {
-        setLoading(true);
-        setMessage(""); // Limpiar el mensaje de confirmación
-        setShowConfirmation(false); // Ocultar el mensaje de confirmación
-
-        console.log("Formulario a enviar", formValues);
-
-        //se envia el formulario pero se agrega el id del usuario
-        //aqui se hace el llamado al action updateUser
-        const updatedUser = await updateUser(userId, {
-            id: userId, // Incluye el ID del usuario
-            firstName: formValues.firstName,
-            lastName: formValues.lastName,
-            email: formValues.email,
-            role: formValues.roles, // Asegúrate de que 'roles' sea un string
-        });
-    
-        if (updatedUser) {
-            // Actualizar el usuario en el store y en el estado
-            updateUserInStore(updatedUser);
-            setUser(updatedUser);
-
-            setLoading(false);
-            setShowConfirmation(true);
-            setMessage("Usuario actualizado correctamente");
-
-            // Redirigir a la lista de usuarios
-            setTimeout(() => {
-                navigate("/users");
-            }, 2000);
-        }else
-        {
-            setLoading(false);
-            setMessage("Error al actualizar el usuario");
-        }
-    };
-
-    // Función para cambiar el estado de activo/inactivo
-    const handleUpdateStatus = async (userId, isActive) => {
-        setLoading(true);
-        setMessage(""); // Limpiar el mensaje de confirmación
-        setShowConfirmation(false); // Ocultar el mensaje de confirmación
-
-        // Llamar a la API para cambiar el estado
-        const updatedUser = isActive
-            ? await disableUser(userId)
-            : await enableUser(userId);
-
-        if (updatedUser) {
-            // Actualizar el usuario en el store y en el estado
-            updateUserInStore(updatedUser);
-            setUser(updatedUser);
-
-            setLoading(false);
-            setShowConfirmation(true);
-            setMessage(`Usuario ${isActive ? "desactivado" : "activado"} correctamente`);
-        } else {
-            setLoading(false);
-            setMessage(`Error al ${isActive ? "desactivar" : "activar"} el usuario`);
-        }
-    };
 
     const handleCancel = () => {
         navigate("/users");
@@ -118,14 +30,7 @@ export const UserDetailPage = () => {
 
     return (
         <div className="flex h-screen">
-            {showConfirmation && (
-                <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full">
-                    <div className="bg-green-500 text-white text-center py-3 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-2">
-                        <FaCheckCircle className="w-5 h-5" />
-                        <span>{message}</span>
-                    </div>
-                </div>
-            )}
+            {notification && <NotificationCard message={notification.message} type={notification.type} />}
             <SideBarUser showSidebar={showSidebar} />
             <div className="flex-1 flex flex-col">
                 <Header

@@ -1,56 +1,17 @@
-import { useState } from "react";
 import { UserForm } from "../components/UserForm";
 import { Loading } from "../../../shared/components/Loading";
 import { SideBarUser } from "../components/SideBarUser";
 import Header from "../../../shared/components/Header";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useUserStore } from "../store/useUserStore";
-import { createUser } from "../../../shared/actions/users/users.action";
+import { useLayout } from "../../../shared/hooks/useLayout";
+import { useCreateUser } from "../hooks/useCreateUser";
+import { NotificationCard } from "../../../shared/components/NotificationCard";
 
 export const UserCreatePage = () => {
-    const [showSidebar, setShowSidebar] = useState(true);
-    const [showUserMenu, setShowUserMenu] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [showConfirmation, setShowConfirmation] = useState(false); // Para mostrar el mensaje de confirmación
-    const [message, setMessage] = useState(""); // El mensaje de confirmación
+    const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
     const navigate = useNavigate();
-    const {addUserToStore, isLoaging} = useUserStore();
-
-    const handleCreateUser = async (formValues) => {
-        setLoading(true);
-    setMessage(""); // Limpiar el mensaje de confirmación
-    setShowConfirmation(false); // Ocultar el mensaje de confirmación
-
-    // Aquí verificamos y ajustamos la estructura del formulario
-    const formattedForm = {
-        firstName: formValues.firstName,
-        lastName: formValues.lastName,
-        email: formValues.email,
-        password: formValues.password,
-        confirmPassword: formValues.confirmPassword,
-        role: formValues.roles,  // Asegúrate de que 'roles' sea una cadena, no un array
-    };
-
-    console.log("Formulario a enviar", formattedForm);
-
-    const createdUser = await createUser(formattedForm);
-    console.log("Usuario creado", createdUser);
-
-    if (createdUser) {
-        addUserToStore(createdUser);
-        setMessage("Usuario creado exitosamente");
-        setShowConfirmation(true);
-        setLoading(false);
-        setTimeout(() => {
-            navigate("/users");
-        }, 2000);
-    } else {
-        setMessage("Error al crear el usuario");
-        setShowConfirmation(true);
-        setLoading(false);
-    }
-    };
+    const { handleCreateUser, loading, message, showConfirmation, notification } = useCreateUser();
 
     const handleCancel = () => {
         navigate("/users");
@@ -61,14 +22,7 @@ export const UserCreatePage = () => {
     }
     return (
         <div className="flex h-screen">
-            {showConfirmation && (
-                <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full">
-                    <div className="bg-green-500 text-white text-center py-3 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-2">
-                        <FaCheckCircle className="w-5 h-5" />
-                        <span>{message}</span>
-                    </div>
-                </div>
-            )}
+            {notification && <NotificationCard message={notification.message} type={notification.type} />}
             <SideBarUser showSidebar={showSidebar} />
             <div className="flex-1 flex flex-col">
                 <Header

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../../features/security/store"
+import { NotificationCard } from "./NotificationCard";
 
 export const ProtectedComponent = ({requiredRoles, children}) => {
     const [showMessage, setShowMessage] = useState(false);
+    const [notification, setNotification] = useState(null);
     const roles = useAuthStore((state) => state.roles) ?? [];
 
     // Verificar si el usuario tiene algún rol requerido
@@ -13,6 +15,10 @@ export const ProtectedComponent = ({requiredRoles, children}) => {
             e.preventDefault();
             // Mostrar mensaje durante 3 segundos
             setShowMessage(true);
+            setNotification({
+                message: "Acceso no autorizado",
+                type: "error",
+            });
             setTimeout(() => {
                 setShowMessage(false);
             }, 3000);
@@ -22,11 +28,7 @@ export const ProtectedComponent = ({requiredRoles, children}) => {
     return (
         <div>
             {showMessage && (
-                <div className="fixed inset-0 flex items-center justify-center z-50">
-                    <div className="bg-red-500 text-white text-center p-4 rounded-lg shadow-lg">
-                        <p className="font-semibold">Acceso no autorizado</p>
-                    </div>
-                </div>
+                <NotificationCard message={notification.message} type={notification.type} />
             )}
             {children && React.cloneElement(children, { onClick: handleClick })}
         </div>

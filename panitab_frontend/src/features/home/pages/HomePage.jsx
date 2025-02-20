@@ -1,13 +1,12 @@
 import { FaUserCircle, FaWarehouse, FaClipboardList, FaChartBar, FaIndustry, FaBox } from "react-icons/fa";
 import HeroSection from "../components/HeroSection";
 import ModuleButton from "../components/buttons/ModuleButton";
-import { useState } from "react";
 import Header from "../../../shared/components/Header";
 import { SidebarHome } from "../components/SidebarHome";
+import { useLayout } from "../../../shared/hooks/useLayout";
 
 const HomePage = () => {
-    const [showSidebar, setShowSidebar] = useState(true);
-    const [showUserMenu, setShowUserMenu] = useState(false);
+    const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
 
     return (
         <div className="flex h-screen">

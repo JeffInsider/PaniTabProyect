@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Header from "../../../shared/components/Header";
 import { SideBarUser } from "../components/SideBarUser";
 import { UserTable } from "../components/UserTable";
@@ -6,10 +6,10 @@ import { useUserStore } from "../store/useUserStore";
 import { Loading } from "../../../shared/components/Loading";
 import { Link } from "react-router-dom";
 import { ProtectedComponent } from "../../../shared/components/ProtectedComponent";
+import { useLayout } from "../../../shared/hooks/useLayout";
 
 export const UserListPage = () => {
-    const [showSidebar, setShowSidebar] = useState(true);
-    const [showUserMenu, setShowUserMenu] = useState(false);
+    const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
     const { users, isLoading, loadUsers } = useUserStore();
 
     useEffect(() => {
