@@ -55,7 +55,9 @@ const Header = ({ showUserMenu, setShowUserMenu, setShowSidebar }) => {
           <div className="relative">
             {/* Icono de notificaciones */}
             <MdNotifications
-              className="text-2xl text-[#5a3825] cursor-pointer"
+              className={`text-2xl text-[#5a3825] cursor-pointer ${
+                showNotifications ? "bg-[#e0e0e0] rounded-full p-1" : ""}
+              `}
               onClick={() => {
                 setShowNotifications(!showNotifications);
               }}
@@ -110,7 +112,7 @@ const Header = ({ showUserMenu, setShowUserMenu, setShowSidebar }) => {
             />
             <span
               className={`text-gray-700 font-semibold cursor-pointer ${
-                showUserMenu ? "text-[#bebebe]" : ""
+                showUserMenu ? "text-[#cecece]" : ""
               }`}
               onClick={() => setShowUserMenu(!showUserMenu)}
             >

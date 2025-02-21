@@ -49,7 +49,7 @@ export const useUserDetail = () => {
             // Actualizar el usuario en el store y en el estado
             updateUserInStore(updatedUser);
             setUser(updatedUser);
-            setNotification({ message: `Usuario ${updateUser.firstName} actualizado correctamente`, type: "success" });
+            setNotification({ message: `Usuario ${formValues.firstName} actualizado correctamente`, type: "success" });
             // Redirigir a la lista de usuarios
             setTimeout(() => navigate("/users"), 2000);
         } else {

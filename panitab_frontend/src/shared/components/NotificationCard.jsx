@@ -4,19 +4,21 @@ import { motion } from "framer-motion";
 import { useNotificationStore } from "../store/notificationStore";
 
 const notificationStyles = {
-  success: "bg-green-600 text-white",
-  error: "bg-red-600 text-white",
-  info: "bg-gray-600 text-white",
+  success: "bg-green-100 border-l-4 border-green-500 text-green-700",
+  error: "bg-red-100 border-l-4 border-red-500 text-red-700",
+  info: "bg-blue-100 border-l-4 border-blue-500 text-blue-700",
 };
 
 export const NotificationCard = ({ message, type = "info" }) => {
   const [visible, setVisible] = useState(true);
-  const { addNotification } = useNotificationStore(); // Agregar notificación al cerrar
 
-  const handleClose = () => {
-    setVisible(false);
-    addNotification(message, type); // Guardar en el store al cerrar
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message, type]);
 
   if (!visible) return null;
 
@@ -26,12 +28,9 @@ export const NotificationCard = ({ message, type = "info" }) => {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -50, opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-16 inset-x-0 mx-auto w-[90%] max-w-xs sm:max-w-md md:max-w-lg p-4 rounded-lg shadow-lg flex items-center justify-between ${notificationStyles[type]}`}
+      className={`fixed top-16 inset-x-0 mx-auto w-[90%] max-w-xs sm:max-w-md md:max-w-lg p-4 rounded-lg shadow-md flex items-center justify-between ${notificationStyles[type]}`}
     >
       <span className="flex-1">{message}</span>
-      <button className="ml-4" onClick={handleClose}>
-        <FaTimes />
-      </button>
     </motion.div>
   );
 };

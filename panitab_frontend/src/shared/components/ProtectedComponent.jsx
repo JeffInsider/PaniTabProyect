@@ -13,7 +13,6 @@ export const ProtectedComponent = ({requiredRoles, children}) => {
     const handleClick = (e) => {
         if (!hasPermission) {
             e.preventDefault();
-            // Mostrar mensaje durante 3 segundos
             setShowMessage(true);
             setNotification({
                 message: "Acceso no autorizado",
@@ -21,7 +20,7 @@ export const ProtectedComponent = ({requiredRoles, children}) => {
             });
             setTimeout(() => {
                 setShowMessage(false);
-            }, 3000);
+            }, 3000);      
         }
     };
 
