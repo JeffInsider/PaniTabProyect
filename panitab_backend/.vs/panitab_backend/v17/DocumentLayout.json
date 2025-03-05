@@ -3,44 +3,156 @@
   "WorkspaceRootPath": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\users\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\warehousecontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\warehousecontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\createwarehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\createwarehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\warehousecontroladjustmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\warehousecontroladjustmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\warehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\warehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\warehousecontrolsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\warehousecontrolsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\warehousedetail\\warehousedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\warehousedetail\\warehousedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\warehousedetail\\updatewarehousedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\warehousedetail\\updatewarehousedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\warehouse\\updatewarehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\warehouse\\updatewarehousecontroldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\warehouse\\warehousecontrolentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\warehouse\\warehousecontrolentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\panitabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\panitabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\users\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\users\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\interfaces\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\interfaces\\iusersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\auth\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\auth\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\migrations\\20250215153926_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\migrations\\20250215153926_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\helpers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\helpers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\interfaces\\iwarehousecontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\interfaces\\iwarehousecontrolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\packer\\packingpackerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\packer\\packingpackerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\packer\\packingdetailentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\packer\\packingdetailentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\packer\\packerpaymententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\packer\\packerpaymententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\breadclassmaterialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\breadclassmaterialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\production\\breadclassmaterialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\production\\breadclassmaterialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\bakerpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\bakerpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\production\\bakerpaymententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\production\\bakerpaymententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228220101_remainingEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:panitab_backend\\Migrations\\20250228220101_remainingEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\unitconversionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\unitconversionconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\production\\productiondetailentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\production\\productiondetailentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\breadclassconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\breadclassconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\production\\breadclassentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\production\\breadclassentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\materialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\materialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\entities\\production\\materialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\entities\\production\\materialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\materialpurchaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\materialpurchaseconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\production\\bakerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\production\\bakerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\packer\\packerpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\packer\\packerpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\administration\\supplierpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\administration\\supplierpaymentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\administration\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\administration\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\administration\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\administration\\orderconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\administration\\orderdetailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\administration\\orderdetailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\database\\configuration\\administration\\customerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\database\\configuration\\administration\\customerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228161639_remainingEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:panitab_backend\\Migrations\\20250228161639_remainingEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\migrations\\20250303211551_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\migrations\\20250303211551_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,124 +166,468 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20250215153926_init.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250215153926_init.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Migrations\\20250215153926_init.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250215153926_init.cs",
-              "RelativeToolTip": "panitab_backend\\Migrations\\20250215153926_init.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "WarehouseControlAdjustmentDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlAdjustmentDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlAdjustmentDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlAdjustmentDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlAdjustmentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:39:26.906Z"
+              "WhenOpened": "2025-03-05T17:11:35.467Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Users\\UserDto.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Users\\UserDto.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Users\\UserDto.cs",
-              "RelativeToolTip": "panitab_backend\\Dtos\\Users\\UserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "WarehouseControlService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\WarehouseControlService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\WarehouseControlService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\WarehouseControlService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\WarehouseControlService.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAvwHYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T22:02:36.733Z",
+              "WhenOpened": "2025-03-04T14:38:21.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CreateWarehouseControlDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\CreateWarehouseControlDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\CreateWarehouseControlDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\CreateWarehouseControlDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\CreateWarehouseControlDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:26:53.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WarehouseControlDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:24:41.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WarehouseDetailDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\WarehouseDetailDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\WarehouseDetailDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\WarehouseDetailDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\WarehouseDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:30:21.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UpdateWarehouseDetailDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\UpdateWarehouseDetailDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\UpdateWarehouseDetailDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\UpdateWarehouseDetailDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\WarehouseDetail\\UpdateWarehouseDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:35:32.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WarehouseControlSummaryDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlSummaryDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlSummaryDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\WarehouseControlSummaryDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\WarehouseControlSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:28:23.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UpdateWarehouseControlDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\UpdateWarehouseControlDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Warehouse\\UpdateWarehouseControlDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Warehouse\\UpdateWarehouseControlDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Warehouse\\UpdateWarehouseControlDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:27:35.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "UsersService.cs",
               "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\UsersService.cs",
               "RelativeDocumentMoniker": "panitab_backend\\Services\\UsersService.cs",
               "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\UsersService.cs",
               "RelativeToolTip": "panitab_backend\\Services\\UsersService.cs",
-              "ViewState": "AgIAAEwBAAAAAAAAAAAuwGABAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T16:08:47.196Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "panitab_backend\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAkwEYAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T16:11:08.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserEntity.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\UserEntity.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\UserEntity.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\UserEntity.cs",
-              "RelativeToolTip": "panitab_backend\\Database\\Entities\\UserEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T15:47:20.366Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Services\\AuthService.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\AuthService.cs",
-              "RelativeToolTip": "panitab_backend\\Services\\AuthService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAcwC0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T15:20:33.81Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateUserDto.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Users\\UpdateUserDto.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Users\\UpdateUserDto.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Users\\UpdateUserDto.cs",
-              "RelativeToolTip": "panitab_backend\\Dtos\\Users\\UpdateUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T15:31:57.55Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUsersService.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\IUsersService.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Services\\Interfaces\\IUsersService.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\IUsersService.cs",
-              "RelativeToolTip": "panitab_backend\\Services\\Interfaces\\IUsersService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T16:10:06.697Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginResponseDto.cs",
-              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Auth\\LoginResponseDto.cs",
-              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Auth\\LoginResponseDto.cs",
-              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Auth\\LoginResponseDto.cs",
-              "RelativeToolTip": "panitab_backend\\Dtos\\Auth\\LoginResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T19:47:47.382Z"
+              "WhenOpened": "2025-03-04T16:22:24.554Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "WarehouseControlEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Warehouse\\WarehouseControlEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Warehouse\\WarehouseControlEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Warehouse\\WarehouseControlEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Warehouse\\WarehouseControlEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T16:51:09.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PaniTabContext.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\PaniTabContext.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\PaniTabContext.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\PaniTabContext.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\PaniTabContext.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwH8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T15:47:56.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Startup.cs",
               "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Startup.cs",
               "RelativeDocumentMoniker": "panitab_backend\\Startup.cs",
               "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Startup.cs",
               "RelativeToolTip": "panitab_backend\\Startup.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACoAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wC8AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T16:09:27.597Z"
+              "WhenOpened": "2025-03-04T16:36:31.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Helpers\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Helpers\\AutoMapperProfile.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Helpers\\AutoMapperProfile.cs",
+              "RelativeToolTip": "panitab_backend\\Helpers\\AutoMapperProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:35:59.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IWarehouseControlService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\IWarehouseControlService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\Interfaces\\IWarehouseControlService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\IWarehouseControlService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\Interfaces\\IWarehouseControlService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T14:47:25.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20250303211551_init.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250303211551_init.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Migrations\\20250303211551_init.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250303211551_init.cs",
+              "RelativeToolTip": "panitab_backend\\Migrations\\20250303211551_init.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T21:15:52.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PackerPaymentEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackerPaymentEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Packer\\PackerPaymentEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackerPaymentEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Packer\\PackerPaymentEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:32:07.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PackingDetailEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackingDetailEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Packer\\PackingDetailEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackingDetailEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Packer\\PackingDetailEntity.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:49:46.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PackingPackerEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackingPackerEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Packer\\PackingPackerEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Packer\\PackingPackerEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Packer\\PackingPackerEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:49:10.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BreadClassMaterialEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BreadClassMaterialEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Production\\BreadClassMaterialEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BreadClassMaterialEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Production\\BreadClassMaterialEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T22:02:19.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BreadClassMaterialConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BreadClassMaterialConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\BreadClassMaterialConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BreadClassMaterialConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\BreadClassMaterialConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T22:02:54.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BakerPaymentEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BakerPaymentEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Production\\BakerPaymentEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BakerPaymentEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Production\\BakerPaymentEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T17:00:02.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "20250228220101_remainingEntities.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228220101_remainingEntities.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Migrations\\20250228220101_remainingEntities.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228220101_remainingEntities.cs",
+              "RelativeToolTip": "panitab_backend\\Migrations\\20250228220101_remainingEntities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T22:01:02.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BakerPaymentConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BakerPaymentConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\BakerPaymentConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BakerPaymentConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\BakerPaymentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:57:35.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UnitConversionConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\UnitConversionConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\UnitConversionConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\UnitConversionConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\UnitConversionConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T21:58:16.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ProductionDetailEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\ProductionDetailEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Production\\ProductionDetailEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\ProductionDetailEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Production\\ProductionDetailEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T21:42:53.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BreadClassEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BreadClassEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Production\\BreadClassEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\BreadClassEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Production\\BreadClassEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T21:40:11.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "MaterialPurchaseConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\MaterialPurchaseConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\MaterialPurchaseConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\MaterialPurchaseConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\MaterialPurchaseConfiguration.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T17:06:02.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "MaterialEntity.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\MaterialEntity.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Entities\\Production\\MaterialEntity.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Entities\\Production\\MaterialEntity.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Entities\\Production\\MaterialEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T17:02:57.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "MaterialConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\MaterialConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\MaterialConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\MaterialConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\MaterialConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T17:03:11.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BreadClassConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BreadClassConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\BreadClassConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BreadClassConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\BreadClassConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:59:31.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BakerConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BakerConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Production\\BakerConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Production\\BakerConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Production\\BakerConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:55:50.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "PackerPaymentConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Packer\\PackerPaymentConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Packer\\PackerPaymentConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Packer\\PackerPaymentConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Packer\\PackerPaymentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:52:57.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SupplierPaymentConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\SupplierPaymentConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Administration\\SupplierPaymentConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\SupplierPaymentConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Administration\\SupplierPaymentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:30:02.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SupplierConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\SupplierConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Administration\\SupplierConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\SupplierConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Administration\\SupplierConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:27:46.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OrderConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\OrderConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Administration\\OrderConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\OrderConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Administration\\OrderConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:26:45.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "OrderDetailConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\OrderDetailConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Administration\\OrderDetailConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\OrderDetailConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Administration\\OrderDetailConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:24:57.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "CustomerConfiguration.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\CustomerConfiguration.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Database\\Configuration\\Administration\\CustomerConfiguration.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Database\\Configuration\\Administration\\CustomerConfiguration.cs",
+              "RelativeToolTip": "panitab_backend\\Database\\Configuration\\Administration\\CustomerConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:22:08.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20250228161639_remainingEntities.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228161639_remainingEntities.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Migrations\\20250228161639_remainingEntities.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Migrations\\20250228161639_remainingEntities.cs",
+              "RelativeToolTip": "panitab_backend\\Migrations\\20250228161639_remainingEntities.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:16:40.231Z"
             }
           ]
         }

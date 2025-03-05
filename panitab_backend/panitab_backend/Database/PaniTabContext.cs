@@ -2,7 +2,15 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using panitab_backend.Database.Configuration;
+using panitab_backend.Database.Configuration.Administration;
+using panitab_backend.Database.Configuration.Packer;
+using panitab_backend.Database.Configuration.Production;
+using panitab_backend.Database.Configuration.Warehouse;
 using panitab_backend.Database.Entities;
+using panitab_backend.Database.Entities.Administration;
+using panitab_backend.Database.Entities.Packer;
+using panitab_backend.Database.Entities.Production;
+using panitab_backend.Database.Entities.Warehouse;
 using panitab_backend.Services.Interfaces;
 
 namespace panitab_backend.Database
@@ -37,6 +45,25 @@ namespace panitab_backend.Database
             modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("users_logins");
             modelBuilder.Entity<IdentityUserToken<string>>().ToTable("users_tokens");
 
+            //configuracion de las entidades
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new SupplierConfiguration());
+            modelBuilder.ApplyConfiguration(new SupplierPaymentConfiguration());
+            modelBuilder.ApplyConfiguration(new PackerPaymentConfiguration());
+            modelBuilder.ApplyConfiguration(new PackingConfiguration());
+            modelBuilder.ApplyConfiguration(new BakerConfiguration());
+            modelBuilder.ApplyConfiguration(new BakerPaymentConfiguration());
+            modelBuilder.ApplyConfiguration(new BreadClassConfiguration());
+            modelBuilder.ApplyConfiguration(new BreadClassMaterialConfiguration());
+            modelBuilder.ApplyConfiguration(new MaterialConfiguration());
+            modelBuilder.ApplyConfiguration(new MaterialPurchaseConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductionConfiguration());
+            modelBuilder.ApplyConfiguration(new UnitConversionConfiguration());
+            modelBuilder.ApplyConfiguration(new WarehouseControlConfiguration());
+            modelBuilder.ApplyConfiguration(new WarehouseMovementConfiguration());
+
             //restringir las keys para que no se eliminen en cascada
             var eTypes = modelBuilder.Model.GetEntityTypes(); // todo el listado de entidades
             foreach (var type in eTypes)
@@ -49,7 +76,7 @@ namespace panitab_backend.Database
             }
         }
 
-        //sobreescribir el metodo saveChangeAsync del DbContext para hacer algo antes de guardar los cambios
+        //sobreescribir el metodo saveChangeAsync del DbContext para hacer algo antes de guardar los cambios de forma asincrona
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (
@@ -77,7 +104,30 @@ namespace panitab_backend.Database
             }
             return base.SaveChangesAsync(cancellationToken);
         }
-    }
+        //Aqui iran los DbSet de las entidades
+        public DbSet<CustomerAssistantEntity> CustomerAssistants { get; set; }
+        public DbSet<CustomerEntity> Customers { get; set; }
+        public DbSet<OrderDetailEntity> OrdersDetails { get; set; }
+        public DbSet<OrderEntity> Orders { get; set; }
+        public DbSet<SupplierEntity> Suppliers { get; set; }
+        public DbSet<SupplierPaymentEntity> SupplierPayments { get; set; }
+        public DbSet<PackerEntity> Packers { get; set; }
+        public DbSet<PackerPaymentEntity> PackerPayments { get; set; }
+        public DbSet<PackingDetailEntity> PackingDetails { get; set; }
+        public DbSet<PackingEntity> Packings { get; set; }
+        public DbSet<BakerEntity> Bakers { get; set; }
+        public DbSet<BakerPaymentEntity> BakerPayments { get; set; }
+        public DbSet<BreadClassEntity> BreadClasses { get; set; }
+        public DbSet<BreadClassMaterialEntity> BreadClassMaterials { get; set; }
+        public DbSet<MaterialEntity> Materials { get; set; }
+        public DbSet<MaterialPurchaseEntity> MaterialPurchases { get; set; }
+        public DbSet<ProductionDetailEntity> ProductionDetails { get; set; }
+        public DbSet<ProductionEntity> Productions { get; set; }
+        public DbSet<UnitConversionEntity> UnitConversions { get; set; }
+        public DbSet<WarehouseControlDetailEntity> WarehouseControlDetails { get; set; }
+        public DbSet<WarehouseControlEntity> WarehouseControls { get; set; }
+        public DbSet<WarehouseMovementDetailEntity> WarehouseMovementDetails { get; set; }
+        public DbSet<WarehouseMovementEntity> WarehouseMovements { get; set; }
 
-    //Aqui iran los DbSet de las entidades
+    }
 }

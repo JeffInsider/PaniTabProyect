@@ -16,9 +16,6 @@ namespace panitab_backend.Database.Entities
         [Column("last_name")]
         public string LastName { get; set; }
 
-        //[Column("identity_number")]
-        //public string IdentityNumber { get; set; }
-
         [Column("is_active")]
         public bool IsActive { get; set; } = true;
 

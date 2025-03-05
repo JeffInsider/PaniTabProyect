@@ -18,5 +18,11 @@ namespace panitab_backend.Helpers
             CreateMap<CreateUserDto, UserEntity>();
             CreateMap<UpdateUserDto, UserEntity>();
         }
+
+        //public void MapsForWarehouse()
+        //{
+        //    CreateMap<WarehouseControlEntity, WarehouseControlDto>();
+        //    CreateMap<WarehouseDetailEntity, WarehouseDetailDto>();
+        //}
     }
 }

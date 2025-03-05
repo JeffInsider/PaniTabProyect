@@ -59,6 +59,7 @@ namespace panitab_backend.Services
                     usersDto.Add(userDto);
                 }
 
+                //se comento el mapper porque no se esta utilizando
                 //var usersDto = _mapper.Map<List<UserDto>>(usersEntity);
 
                 return new ResponseDto<List<UserDto>>

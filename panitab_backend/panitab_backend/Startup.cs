@@ -47,6 +47,7 @@ namespace panitab_backend
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IAuditService, AuditService>();
             services.AddTransient<IUsersService, UsersService>();
+            services.AddTransient<IWarehouseControlService, WarehouseControlService>();
 
             //Add Identity
             services.AddIdentity<UserEntity, IdentityRole>(options =>
