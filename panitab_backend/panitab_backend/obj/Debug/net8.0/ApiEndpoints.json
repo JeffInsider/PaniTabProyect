@@ -52,6 +52,161 @@
     ]
   },
   {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "GetAllCustomers",
+    "RelativePath": "api/customers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "CreateCustomer",
+    "RelativePath": "api/customers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "panitab_backend.Dtos.Customer.CreateCustomerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "GetCustomerById",
+    "RelativePath": "api/customers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/customers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "panitab_backend.Dtos.Customer.UpdateCustomerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "DisableCustomer",
+    "RelativePath": "api/customers/disable/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.CustomersController",
+    "Method": "EnableCustomer",
+    "RelativePath": "api/customers/enable/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "panitab_backend.Controllers.UsersController",
     "Method": "GetAllUsers",
     "RelativePath": "api/users",
@@ -197,6 +352,171 @@
     "ReturnTypes": [
       {
         "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Users.UserDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "GetAllWarehouseControls",
+    "RelativePath": "api/warehouse-control",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "CreateWarehouseControl",
+    "RelativePath": "api/warehouse-control",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "panitab_backend.Dtos.Warehouse.CreateWarehouseControlDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "GetWarehouseControlByNumber",
+    "RelativePath": "api/warehouse-control/{number}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "number",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "UpdateWarehouseControl",
+    "RelativePath": "api/warehouse-control/{number}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "number",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "panitab_backend.Dtos.Warehouse.UpdateWarehouseControlDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "userRole",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "RegisterInventoryAdjustment",
+    "RelativePath": "api/warehouse-control/adjustments/{number}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "number",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "adjustments",
+        "Type": "System.Collections.Generic.List\u00601[[panitab_backend.Dtos.Warehouse.WarehouseDetail.UpdateWarehouseDetailDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "panitab_backend.Controllers.WarehouseControlController",
+    "Method": "CloseWarehouseControl",
+    "RelativePath": "api/warehouse-control/close/{number}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "number",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Warehouse.WarehouseControlDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

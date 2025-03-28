@@ -10,6 +10,6 @@ namespace panitab_backend.Services.Interfaces
         Task<ResponseDto<UserDto>> EnableUserAsync(string id);
         Task<ResponseDto<List<UserDto>>> GetAllUsersAsync();
         Task<ResponseDto<UserDto>> GetUserByIdAsync(string id);
-        Task<ResponseDto<UserDto>> UpdateUserAsync(UpdateUserDto dto);
+        Task<ResponseDto<UserDto>> UpdateUserAsync(string id, UpdateUserDto dto);
     }
 }

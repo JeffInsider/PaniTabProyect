@@ -4,9 +4,6 @@ namespace panitab_backend.Dtos.Users
 {
     public class UpdateUserDto
     {
-        [Required]
-        public string Id { get; set; } // Se necesita para identificar al usuario a actualizar
-
         [StringLength(70, MinimumLength = 3)]
         public string FirstName { get; set; }
 

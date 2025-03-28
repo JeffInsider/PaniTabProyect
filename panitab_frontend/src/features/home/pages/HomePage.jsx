@@ -4,9 +4,11 @@ import ModuleButton from "../components/buttons/ModuleButton";
 import Header from "../../../shared/components/Header";
 import { SidebarHome } from "../components/SidebarHome";
 import { useLayout } from "../../../shared/hooks/useLayout";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
     const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
+    const navigate = useNavigate();
 
     return (
         <div className="flex h-screen">
@@ -38,7 +40,7 @@ const HomePage = () => {
                             title="Administración"
                             description="Gestión de órdenes de compra y clientes."
                             icon={FaClipboardList}
-                            onClick={() => console.log("Ir a Administración")}
+                            onClick={() => navigate("/administration")}
                         />
                         <ModuleButton
                             title="Control de Bodega"

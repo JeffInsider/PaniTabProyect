@@ -26,9 +26,11 @@ export const ProtectedComponent = ({requiredRoles, children}) => {
 
     return (
         <div>
+            {/* Mostrar mensaje de error */}
             {showMessage && (
                 <NotificationCard message={notification.message} type={notification.type} />
             )}
+            {/* Mostrar el componente hijo si si esta autorizado*/}
             {children && React.cloneElement(children, { onClick: handleClick })}
         </div>
     );

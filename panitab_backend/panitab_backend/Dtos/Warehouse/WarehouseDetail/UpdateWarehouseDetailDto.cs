@@ -4,8 +4,6 @@
     public class UpdateWarehouseDetailDto
     {
         public Guid Id { get; set; }
-        public int Packed { get; set; }
-        public int Sold { get; set; }
         public int Adjustments { get; set; }
         public int DamagedStock { get; set; }
         public int RealStock { get; set; }

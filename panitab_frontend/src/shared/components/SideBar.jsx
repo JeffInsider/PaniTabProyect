@@ -35,6 +35,7 @@ export const SideBar = ({title, options = [], showSidebar, isHome, children}) =>
                                     rounded-lg transition duration-300`}
                                     onClick={() => navigate(path)}
                                 >
+                                    {/*el location.pathname es para que marque con el color la ruta seleccionada en el sidebar*/ }
                                     <Icon className="text-xl" />
                                     <span className="text-md font-semibold">{label}</span>
                                 </button>

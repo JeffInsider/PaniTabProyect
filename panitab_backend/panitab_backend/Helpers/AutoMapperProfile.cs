@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using panitab_backend.Database.Entities;
+using panitab_backend.Database.Entities.Administration;
 using panitab_backend.Dtos.Auth;
+using panitab_backend.Dtos.Customer;
 using panitab_backend.Dtos.Users;
 
 namespace panitab_backend.Helpers
@@ -17,6 +19,13 @@ namespace panitab_backend.Helpers
             CreateMap<UserEntity, UserDto>();
             CreateMap<CreateUserDto, UserEntity>();
             CreateMap<UpdateUserDto, UserEntity>();
+        }
+
+        public void MapsForCustomers()
+        {
+            CreateMap<CustomerEntity, CustomerDto>();
+            CreateMap<CreateCustomerDto, CustomerEntity>();
+            CreateMap<UpdateCustomerDto, CustomerEntity>();
         }
 
         //public void MapsForWarehouse()

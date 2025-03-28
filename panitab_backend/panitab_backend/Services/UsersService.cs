@@ -199,11 +199,11 @@ namespace panitab_backend.Services
         }
 
         //actualizar un usuario
-        public async Task<ResponseDto<UserDto>> UpdateUserAsync(UpdateUserDto dto)
+        public async Task<ResponseDto<UserDto>> UpdateUserAsync(string id, UpdateUserDto dto)
         {
             try
             {
-                var userEntity = await _userManager.FindByIdAsync(dto.Id);
+                var userEntity = await _userManager.FindByIdAsync(id);//buscar el usuario
 
                 if (userEntity == null)
                 {

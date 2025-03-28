@@ -49,8 +49,7 @@ namespace panitab_backend.Controllers
         [Authorize(Roles = $"{RolesConstant.ADMIN}")]
         public async Task<ActionResult<ResponseDto<UserDto>>> UpdateUser(string id, [FromBody] UpdateUserDto dto)
         {
-            dto.Id = id;
-            var response = await _usersService.UpdateUserAsync(dto);
+            var response = await _usersService.UpdateUserAsync(id, dto);
 
             return StatusCode(response.StatusCode, response);
         }
