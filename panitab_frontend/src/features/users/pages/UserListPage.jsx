@@ -7,6 +7,7 @@ import { Loading } from "../../../shared/components/Loading";
 import { Link } from "react-router-dom";
 import { ProtectedComponent } from "../../../shared/components/ProtectedComponent";
 import { useLayout } from "../../../shared/hooks/useLayout";
+import { rolesListConstant } from "../../../shared/constants/roles-list.constants";
 
 export const UserListPage = () => {
     const { showSidebar, setShowSidebar, showUserMenu, setShowUserMenu } = useLayout();
@@ -42,7 +43,7 @@ export const UserListPage = () => {
                         <section className=" font-semibold text-gray-800 mb-4">
                             <div className="flex justify-between items-center">
                                 <h1 className="mt-2 mb-5 text-2xl">Gestión de Usuarios</h1>
-                                <ProtectedComponent requiredRoles={["ADMIN"]}>
+                                <ProtectedComponent requiredRoles={[rolesListConstant.ADMIN]}>
                                     <Link to="/users/create" className="bg-gray-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-600">
                                         Crear Usuario
                                     </Link>

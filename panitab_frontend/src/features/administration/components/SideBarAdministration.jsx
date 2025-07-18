@@ -13,7 +13,7 @@ export const SideBarAdministration = ({ showSidebar }) => {
         {
             label: "Vendedores",
             icon: FaTruck,
-            path: "/administration/customer"
+            path: "/administration/customers"
         }
     ];
     return (

@@ -8,7 +8,7 @@ namespace panitab_backend.Database.Configuration.Production
     {
         public void Configure(EntityTypeBuilder<BreadClassMaterialEntity> builder)
         {
-            builder.Property(e => e.QuantityUsed).HasPrecision(10, 2);
+            builder.Property(e => e.QuantityUsed).HasPrecision(18, 2);
         }
     }
 }

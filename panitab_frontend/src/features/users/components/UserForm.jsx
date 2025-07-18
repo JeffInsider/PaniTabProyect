@@ -11,7 +11,7 @@ export const UserForm = ({user, onSubmit, loading, isCreate}) => {
             firstName: user.firstName || "",
             lastName: user.lastName || "",
             email: user.email || "",
-            password: isCreate ? "" : undefined, // Inicializar vacío si es nuevo usuario
+            password: isCreate ? "" : undefined, // Inicializar vacío si es nuevo usuario y el undefined si no es nuevo usuario y no se podra editar
             confirmPassword: isCreate ? "" : undefined, // Inicializar vacío si es nuevo usuario
             roles: Array.isArray(user.roles) ? user.roles[0] : user.roles || "", // Asegurar que sea string  
         },

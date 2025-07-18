@@ -97,7 +97,8 @@ namespace panitab_backend
                 .WithOrigins(allowURLS)
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowCredentials());
+                .AllowCredentials()
+                .WithExposedHeaders("Authorization")); // permite exponer el header Authorization
             });
         }
 

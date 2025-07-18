@@ -8,7 +8,9 @@ namespace panitab_backend.Database.Configuration.Packer
     {
         public void Configure(EntityTypeBuilder<PackerPaymentEntity> builder)
         {
-            builder.Property(e => e.AmountPaid).HasPrecision(10, 2);
+            builder.Property(e => e.AmountPaid).HasPrecision(18, 2);
+            builder.HasIndex(pp => pp.PaymentDate);
+            builder.HasIndex(pp => pp.PackerId);
         }
     }
 }

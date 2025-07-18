@@ -11,16 +11,16 @@ namespace panitab_backend.Database.Entities
 
         [StringLength(450)]
         [Column("created_by")]
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
 
         [Column("created_date")]
         public DateTime CreatedDate { get; set; }
 
         [StringLength(450)]
         [Column("updated_by")]
-        public string UpdatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
 
         [Column("updated_date")]
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }

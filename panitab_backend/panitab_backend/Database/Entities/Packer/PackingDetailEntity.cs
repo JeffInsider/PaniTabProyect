@@ -30,15 +30,6 @@ namespace panitab_backend.Database.Entities.Packer
         [ForeignKey("BreadClassId")]
         public virtual BreadClassEntity BreadClass { get; set; }
 
-        //que empacador lo empaco
-        //[Column("packer_id")]
-        //[Required]
-        //public Guid PackerId { get; set; }
-
-        //[ForeignKey("PackerId")]
-        //public virtual PackerEntity Packer { get; set; }
-
-
         [Column("total_packed")]
         [Required]
         public int TotalPacked { get; set; }

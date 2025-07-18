@@ -20,15 +20,19 @@ namespace panitab_backend.Database.Entities.Warehouse
         [StringLength(255)]
         public string Observations { get; set; }
 
-        [Column("is_completed")]
+        public enum WarehouseStatus
+        {
+            Open,
+            Closed,
+            Cancelled
+        }
+        [Column("status")]
         [Required]
-        public bool IsCompleted { get; set; } = false; //estado de el control de inventario (Ej: "En proceso", "Finalizado")
+        public WarehouseStatus Status { get; set; } = WarehouseStatus.Open;
 
         [Column("last_closing_date")]
         public DateTime? LastClosingDate { get; set; }
 
         public virtual ICollection<WarehouseControlDetailEntity> WarehouseControlDetails { get; set; }
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
     }
 }

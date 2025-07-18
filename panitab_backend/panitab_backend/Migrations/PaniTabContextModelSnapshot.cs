@@ -170,7 +170,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("assistant_name");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -184,12 +183,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("customer_id");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -208,12 +206,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("Balance")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -251,20 +248,22 @@ namespace panitab_backend.Migrations
                         .HasColumnName("phone_number");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
+                    b.HasIndex("IdentityNumber")
+                        .IsUnique();
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("IsActive");
+
+                    b.HasIndex("PhoneNumber");
 
                     b.ToTable("customer", "dbo");
                 });
@@ -281,7 +280,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -299,17 +297,16 @@ namespace panitab_backend.Migrations
                         .HasColumnName("quantity");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("unit_price");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -317,7 +314,7 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("BreadClassId");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderId", "BreadClassId");
 
                     b.ToTable("order_detail", "dbo");
                 });
@@ -334,7 +331,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("assistant_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -368,8 +364,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("order_type");
 
                     b.Property<decimal>("OutstandingBalance")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("outstanding_balance");
 
                     b.Property<Guid?>("ParentOrderId")
@@ -377,17 +373,16 @@ namespace panitab_backend.Migrations
                         .HasColumnName("parent_order_id");
 
                     b.Property<decimal>("TotalAmount")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("total_amount");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -395,13 +390,14 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("AssistantId");
 
-                    b.HasIndex("CreatedBy");
+                    b.HasIndex("IsPaid");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("OrderNumber")
+                        .IsUnique();
 
                     b.HasIndex("ParentOrderId");
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("CustomerId", "OrderDate");
 
                     b.ToTable("order", "dbo");
                 });
@@ -414,8 +410,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("Balance")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance");
 
                     b.Property<string>("Contact")
@@ -425,7 +421,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("contact");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -447,16 +442,19 @@ namespace panitab_backend.Migrations
                         .HasColumnName("phone");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name");
+
+                    b.HasIndex("Phone");
 
                     b.ToTable("supplier", "dbo");
                 });
@@ -469,17 +467,16 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("AmountPaid")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("amount_paid");
 
                     b.Property<decimal>("BalanceRemaining")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance_remaining");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -503,16 +500,17 @@ namespace panitab_backend.Migrations
                         .HasColumnName("supplier_id");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaymentDate");
 
                     b.HasIndex("SupplierId");
 
@@ -527,7 +525,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -559,16 +556,20 @@ namespace panitab_backend.Migrations
                         .HasColumnName("last_name");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdentityNumber")
+                        .IsUnique();
+
+                    b.HasIndex("IsActive");
 
                     b.ToTable("packer", "dbo");
                 });
@@ -581,12 +582,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("AmountPaid")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("amount_paid");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -619,18 +619,19 @@ namespace panitab_backend.Migrations
                         .HasColumnName("total_bags_packed");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PackerId");
+
+                    b.HasIndex("PaymentDate");
 
                     b.ToTable("packer_payment", "dbo");
                 });
@@ -647,7 +648,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -683,12 +683,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("total_packed");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -696,9 +695,9 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("BreadClassId");
 
-                    b.HasIndex("PackingId");
-
                     b.HasIndex("ProductionId");
+
+                    b.HasIndex("PackingId", "BreadClassId");
 
                     b.ToTable("packing_detail", "dbo");
                 });
@@ -711,7 +710,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -719,10 +717,6 @@ namespace panitab_backend.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit")
-                        .HasColumnName("is_completed");
 
                     b.Property<Guid?>("PackerEntityId")
                         .HasColumnType("uniqueidentifier");
@@ -737,36 +731,44 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("packing_number");
 
-                    b.Property<string>("UpdatedBy")
+                    b.Property<string>("Status")
                         .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("status");
+
+                    b.Property<string>("UpdatedBy")
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
-
                     b.HasIndex("PackerEntityId");
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("PackingDate");
+
+                    b.HasIndex("PackingNumer")
+                        .IsUnique();
 
                     b.ToTable("packing", "dbo");
                 });
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Packer.PackingPackerEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("PackingId")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("id");
+                        .HasColumnName("packing_id");
+
+                    b.Property<Guid>("PackerId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("packer_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -775,34 +777,27 @@ namespace panitab_backend.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
 
-                    b.Property<Guid>("PackerId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("packer_id");
+                        .HasColumnName("id");
 
                     b.Property<Guid?>("PackingDetailEntityId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PackingId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("packing_id");
-
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
-                    b.HasKey("Id");
+                    b.HasKey("PackingId", "PackerId");
 
                     b.HasIndex("PackerId");
 
                     b.HasIndex("PackingDetailEntityId");
-
-                    b.HasIndex("PackingId");
 
                     b.ToTable("packing_packer", "dbo");
                 });
@@ -815,12 +810,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("Balance")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -852,16 +846,20 @@ namespace panitab_backend.Migrations
                         .HasColumnName("last_name");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdentityNumber")
+                        .IsUnique();
+
+                    b.HasIndex("IsActive");
 
                     b.ToTable("baker", "dbo");
                 });
@@ -874,8 +872,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("AmountPaid")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("amount_paid");
 
                     b.Property<Guid>("BakerId")
@@ -884,12 +882,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("baker_id");
 
                     b.Property<decimal>("BalanceAdjustment")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance_adjustment");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -904,32 +901,35 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("last_production_paid");
 
-                    b.Property<bool>("PaymentCompleted")
-                        .HasColumnType("bit")
-                        .HasColumnName("payment_completed");
-
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("payment_date");
 
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("payment_status");
+
                     b.Property<decimal>("TotalOfQuintal")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("total_arrobas");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BakerId");
+
+                    b.HasIndex("PaymentDate");
 
                     b.ToTable("baker_payment", "dbo");
                 });
@@ -946,8 +946,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("breads_per_bag");
 
                     b.Property<decimal>("BreadsPerTray")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("breads_per_tray");
 
                     b.Property<string>("Category")
@@ -957,7 +957,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("category");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -967,8 +966,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("created_date");
 
                     b.Property<decimal>("CustomerPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("customer_price");
 
                     b.Property<bool>("IsActive")
@@ -982,36 +981,42 @@ namespace panitab_backend.Migrations
                         .HasColumnName("name");
 
                     b.Property<decimal>("PackagingPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("packaging_price");
 
                     b.Property<decimal>("PricePerQuintal")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("price_per_quintal");
 
                     b.Property<decimal>("PublicPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("public_price");
 
                     b.Property<decimal>("TraysPerQuintal")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("trays_per_quintal");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Category");
+
+                    b.HasIndex("IsActive");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("bread_class", "dbo");
                 });
@@ -1028,7 +1033,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1048,17 +1052,16 @@ namespace panitab_backend.Migrations
                         .HasColumnName("measure_unit");
 
                     b.Property<decimal>("QuantityUsed")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("quantity_used");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -1085,7 +1088,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("category");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1095,8 +1097,8 @@ namespace panitab_backend.Migrations
                         .HasColumnName("created_date");
 
                     b.Property<decimal>("CurrentStock")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("current_stock");
 
                     b.Property<bool>("IsActive")
@@ -1116,16 +1118,22 @@ namespace panitab_backend.Migrations
                         .HasColumnName("name");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Category");
+
+                    b.HasIndex("IsActive");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("material", "dbo");
                 });
@@ -1138,12 +1146,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("Balance")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("balance");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1162,17 +1169,19 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("measure_unit");
 
-                    b.Property<bool>("PaymentStatus")
-                        .HasColumnType("bit")
-                        .HasColumnName("payment_status");
-
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("purchase_date");
 
+                    b.Property<string>("PurchaseStatus")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("purchase_status");
+
                     b.Property<decimal>("QuantityPurchased")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("quantity_purchased");
 
                     b.Property<Guid>("SupplierId")
@@ -1180,23 +1189,24 @@ namespace panitab_backend.Migrations
                         .HasColumnName("supplier_id");
 
                     b.Property<decimal>("UnitPrice")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("unit_price");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MaterialId");
+
+                    b.HasIndex("PurchaseDate");
 
                     b.HasIndex("SupplierId");
 
@@ -1221,7 +1231,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1251,15 +1260,14 @@ namespace panitab_backend.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
-                        .HasColumnName("status");
+                        .HasColumnName("production_status");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -1269,7 +1277,7 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("BreadClassId");
 
-                    b.HasIndex("ProductionId");
+                    b.HasIndex("ProductionId", "BreadClassId");
 
                     b.ToTable("production_detail", "dbo");
                 });
@@ -1282,7 +1290,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1290,10 +1297,6 @@ namespace panitab_backend.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit")
-                        .HasColumnName("is_completed");
 
                     b.Property<DateTime>("ProductionDate")
                         .HasColumnType("datetime2")
@@ -1305,21 +1308,27 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(70)")
                         .HasColumnName("production_number");
 
-                    b.Property<string>("UpdatedBy")
+                    b.Property<string>("Status")
                         .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("status");
+
+                    b.Property<string>("UpdatedBy")
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
+                    b.HasIndex("ProductionDate");
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("ProductionNumber")
+                        .IsUnique();
 
                     b.ToTable("production", "dbo");
                 });
@@ -1332,12 +1341,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<decimal>("ConversionFactor")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("conversion_factor");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1363,12 +1371,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("to_unit");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -1485,7 +1492,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1545,12 +1551,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("shortage");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -1566,7 +1571,7 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("PackingId");
 
-                    b.HasIndex("WarehouseControlId");
+                    b.HasIndex("WarehouseControlId", "BreadClassId");
 
                     b.ToTable("warehouse_control_detail", "dbo");
                 });
@@ -1589,7 +1594,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("control_number");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1597,10 +1601,6 @@ namespace panitab_backend.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit")
-                        .HasColumnName("is_completed");
 
                     b.Property<DateTime?>("LastClosingDate")
                         .HasColumnType("datetime2")
@@ -1612,21 +1612,27 @@ namespace panitab_backend.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("observations");
 
-                    b.Property<string>("UpdatedBy")
+                    b.Property<string>("Status")
                         .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("status");
+
+                    b.Property<string>("UpdatedBy")
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
+                    b.HasIndex("ClosingDate");
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("ControlNumber")
+                        .IsUnique();
 
                     b.ToTable("warehouse_control", "dbo");
                 });
@@ -1643,7 +1649,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("bread_class_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1654,8 +1659,8 @@ namespace panitab_backend.Migrations
 
                     b.Property<string>("MovementType")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
                         .HasColumnName("movement_type");
 
                     b.Property<string>("Observations")
@@ -1669,12 +1674,11 @@ namespace panitab_backend.Migrations
                         .HasColumnName("quantity");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
@@ -1692,7 +1696,7 @@ namespace panitab_backend.Migrations
 
                     b.HasIndex("WarehouseControlDetailId");
 
-                    b.HasIndex("WarehouseMovementId");
+                    b.HasIndex("WarehouseMovementId", "BreadClassId");
 
                     b.ToTable("warehouse_movement_detail", "dbo");
                 });
@@ -1705,7 +1709,6 @@ namespace panitab_backend.Migrations
                         .HasColumnName("id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("created_by");
@@ -1724,20 +1727,20 @@ namespace panitab_backend.Migrations
                         .HasColumnName("movement_number");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("updated_by");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy");
+                    b.HasIndex("MovementDate");
 
-                    b.HasIndex("UpdatedBy");
+                    b.HasIndex("MovementNumber")
+                        .IsUnique();
 
                     b.ToTable("warehouse_movement", "dbo");
                 });
@@ -1804,25 +1807,6 @@ namespace panitab_backend.Migrations
                     b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("panitab_backend.Database.Entities.Administration.CustomerEntity", b =>
-                {
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("UpdatedByUser");
-                });
-
             modelBuilder.Entity("panitab_backend.Database.Entities.Administration.OrderDetailEntity", b =>
                 {
                     b.HasOne("panitab_backend.Database.Entities.Production.BreadClassEntity", "BreadClass")
@@ -1849,12 +1833,6 @@ namespace panitab_backend.Migrations
                         .HasForeignKey("AssistantId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("panitab_backend.Database.Entities.Administration.CustomerEntity", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
@@ -1866,21 +1844,11 @@ namespace panitab_backend.Migrations
                         .HasForeignKey("ParentOrderId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Assistant");
-
-                    b.Navigation("CreatedByUser");
 
                     b.Navigation("Customer");
 
                     b.Navigation("ParentOrder");
-
-                    b.Navigation("UpdatedByUser");
                 });
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Administration.SupplierPaymentEntity", b =>
@@ -1934,32 +1902,16 @@ namespace panitab_backend.Migrations
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Packer.PackingEntity", b =>
                 {
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("panitab_backend.Database.Entities.Packer.PackerEntity", null)
                         .WithMany("PackingDetails")
                         .HasForeignKey("PackerEntityId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("UpdatedByUser");
                 });
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Packer.PackingPackerEntity", b =>
                 {
                     b.HasOne("panitab_backend.Database.Entities.Packer.PackerEntity", "Packer")
-                        .WithMany()
+                        .WithMany("PackingPackers")
                         .HasForeignKey("PackerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -1970,7 +1922,7 @@ namespace panitab_backend.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("panitab_backend.Database.Entities.Packer.PackingEntity", "Packing")
-                        .WithMany()
+                        .WithMany("PackingPackers")
                         .HasForeignKey("PackingId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -2056,25 +2008,6 @@ namespace panitab_backend.Migrations
                     b.Navigation("Production");
                 });
 
-            modelBuilder.Entity("panitab_backend.Database.Entities.Production.ProductionEntity", b =>
-                {
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("UpdatedByUser");
-                });
-
             modelBuilder.Entity("panitab_backend.Database.Entities.Production.UnitConversionEntity", b =>
                 {
                     b.HasOne("panitab_backend.Database.Entities.Production.MaterialEntity", "Material")
@@ -2119,25 +2052,6 @@ namespace panitab_backend.Migrations
                     b.Navigation("WarehouseControl");
                 });
 
-            modelBuilder.Entity("panitab_backend.Database.Entities.Warehouse.WarehouseControlEntity", b =>
-                {
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("UpdatedByUser");
-                });
-
             modelBuilder.Entity("panitab_backend.Database.Entities.Warehouse.WarehouseMovementDetailEntity", b =>
                 {
                     b.HasOne("panitab_backend.Database.Entities.Production.BreadClassEntity", "BreadClass")
@@ -2165,25 +2079,6 @@ namespace panitab_backend.Migrations
                     b.Navigation("WarehouseMovement");
                 });
 
-            modelBuilder.Entity("panitab_backend.Database.Entities.Warehouse.WarehouseMovementEntity", b =>
-                {
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("panitab_backend.Database.Entities.UserEntity", "UpdatedByUser")
-                        .WithMany()
-                        .HasForeignKey("UpdatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("UpdatedByUser");
-                });
-
             modelBuilder.Entity("panitab_backend.Database.Entities.Administration.CustomerEntity", b =>
                 {
                     b.Navigation("Orders");
@@ -2208,6 +2103,8 @@ namespace panitab_backend.Migrations
                     b.Navigation("PackerPayments");
 
                     b.Navigation("PackingDetails");
+
+                    b.Navigation("PackingPackers");
                 });
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Packer.PackingDetailEntity", b =>
@@ -2218,6 +2115,8 @@ namespace panitab_backend.Migrations
             modelBuilder.Entity("panitab_backend.Database.Entities.Packer.PackingEntity", b =>
                 {
                     b.Navigation("PackingDetails");
+
+                    b.Navigation("PackingPackers");
                 });
 
             modelBuilder.Entity("panitab_backend.Database.Entities.Production.BakerEntity", b =>

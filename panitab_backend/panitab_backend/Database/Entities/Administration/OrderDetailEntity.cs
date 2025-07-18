@@ -25,6 +25,7 @@ namespace panitab_backend.Database.Entities.Administration
         [Required]
         public int Quantity { get; set; }
 
+        //decimal 18,2
         [Column("unit_price")]
         [Required]
         public decimal UnitPrice { get; set; }

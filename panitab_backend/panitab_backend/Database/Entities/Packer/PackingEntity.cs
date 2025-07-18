@@ -15,12 +15,20 @@ namespace panitab_backend.Database.Entities.Packer
         [Required]
         public DateTime PackingDate { get; set; }
 
-        [Column("is_completed")]
+        public enum PackingStatus
+        {
+            Pending,
+            Completed,
+            Cancelled
+        }
+
+        [Column("status")]
         [Required]
-        public bool IsCompleted { get; set; } = false; //estado de el empaque
+        public PackingStatus Status { get; set; } = PackingStatus.Pending;
 
         public virtual ICollection<PackingDetailEntity> PackingDetails { get; set; }
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
+
+        // En PackingEntity.cs
+        public virtual ICollection<PackingPackerEntity> PackingPackers { get; set; }
     }
 }

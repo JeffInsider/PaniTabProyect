@@ -8,17 +8,12 @@ namespace panitab_backend.Database.Configuration.Production
     {
         public void Configure(EntityTypeBuilder<ProductionEntity> builder)
         {
-            builder.HasOne(e => e.CreatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.CreatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
+            builder.HasIndex(p => p.ProductionNumber).IsUnique();
+            builder.HasIndex(p => p.ProductionDate);
 
-            builder.HasOne(e => e.UpdatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.UpdatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
+            builder.Property(p => p.Status)
+                   .HasConversion<string>()
+                   .HasMaxLength(20);
         }
     }
 }

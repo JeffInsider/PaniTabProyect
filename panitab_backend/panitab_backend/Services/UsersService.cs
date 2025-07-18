@@ -5,6 +5,7 @@ using panitab_backend.Constants;
 using panitab_backend.Database;
 using panitab_backend.Database.Entities;
 using panitab_backend.Dtos;
+using panitab_backend.Dtos.Customer;
 using panitab_backend.Dtos.Users;
 using panitab_backend.Services.Interfaces;
 
@@ -31,16 +32,16 @@ namespace panitab_backend.Services
             {
                 var usersEntity = await _context.Users.ToListAsync();
 
-                if (usersEntity == null || !usersEntity.Any())
-                {
-                    return new ResponseDto<List<UserDto>>
-                    {
-                        Status = false,
-                        StatusCode = 404,
-                        Message = "No hay usuarios registrados",
-                        Data = new List<UserDto>()
-                    };
-                }
+                //if (usersEntity == null || !usersEntity.Any())
+                //{
+                //    return new ResponseDto<List<UserDto>>
+                //    {
+                //        Status = false,
+                //        StatusCode = 404,
+                //        Message = "No hay usuarios registrados",
+                //        Data = new List<UserDto>()
+                //    };
+                //}
 
                 //aqui obtenemos los roles de los usuarios
 
@@ -66,7 +67,7 @@ namespace panitab_backend.Services
                 {
                     Status = true,
                     StatusCode = 200,
-                    Message = "Lista de usuarios",
+                    Message = usersDto.Any() ? "Usuarios encontrados" : "No hay usuarios registrados aún",
                     Data = usersDto
                 };
             }

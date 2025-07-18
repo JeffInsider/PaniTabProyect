@@ -23,8 +23,16 @@ namespace panitab_backend.Database.Entities.Production
         [Column("amount_paid")]
         public decimal AmountPaid { get; set; } // Monto a pagar al panadero
 
-        [Column("payment_completed")]
-        public bool PaymentCompleted { get; set; } = false; // Estado del pago (Ej: "Pagado", "Pendiente")
+        public enum BakerStatus
+        {
+            Pending,
+            Completed,
+            Cancelled
+        }
+
+        [Column("payment_status")]
+        [Required]
+        public BakerStatus PaymentStatus { get; set; } = BakerStatus.Pending; // Estado del pago
 
         [Column("balance_adjustment")]
         public decimal BalanceAdjustment { get; set; } // Ajuste de balance

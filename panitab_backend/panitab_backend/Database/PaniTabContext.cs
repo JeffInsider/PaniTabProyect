@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using panitab_backend.Database.Configuration;
 using panitab_backend.Database.Configuration.Administration;
@@ -51,8 +52,11 @@ namespace panitab_backend.Database
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new SupplierConfiguration());
             modelBuilder.ApplyConfiguration(new SupplierPaymentConfiguration());
+            modelBuilder.ApplyConfiguration(new PackerConfiguration());
             modelBuilder.ApplyConfiguration(new PackerPaymentConfiguration());
             modelBuilder.ApplyConfiguration(new PackingConfiguration());
+            modelBuilder.ApplyConfiguration(new PackingDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new PackingPackerConfiguration());
             modelBuilder.ApplyConfiguration(new BakerConfiguration());
             modelBuilder.ApplyConfiguration(new BakerPaymentConfiguration());
             modelBuilder.ApplyConfiguration(new BreadClassConfiguration());
@@ -60,9 +64,12 @@ namespace panitab_backend.Database
             modelBuilder.ApplyConfiguration(new MaterialConfiguration());
             modelBuilder.ApplyConfiguration(new MaterialPurchaseConfiguration());
             modelBuilder.ApplyConfiguration(new ProductionConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductionDetailConfiguration());
             modelBuilder.ApplyConfiguration(new UnitConversionConfiguration());
             modelBuilder.ApplyConfiguration(new WarehouseControlConfiguration());
+            modelBuilder.ApplyConfiguration(new WarehouseControlDetailConfiguration());
             modelBuilder.ApplyConfiguration(new WarehouseMovementConfiguration());
+            modelBuilder.ApplyConfiguration(new WarehouseMovementDetailConfiguration());
 
             //restringir las keys para que no se eliminen en cascada
             var eTypes = modelBuilder.Model.GetEntityTypes(); // todo el listado de entidades
@@ -77,33 +84,73 @@ namespace panitab_backend.Database
         }
 
         //sobreescribir el metodo saveChangeAsync del DbContext para hacer algo antes de guardar los cambios de forma asincrona
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        //{
+        //    var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (
+        //        e.State == EntityState.Added || 
+        //        e.State == EntityState.Modified
+        //        ));
+
+        //    foreach (var entry in entries)
+        //    {
+        //        var entity = entry.Entity as BaseEntity;
+
+        //        if (entity != null)
+        //        {
+        //            if (entry.State == EntityState.Added)
+        //            {
+        //                entity.CreatedBy = _auditService.GetUserId() ?? "system";
+        //                entity.CreatedDate = DateTime.UtcNow;
+        //            }
+        //            else
+        //            {
+        //                entity.UpdatedBy = _auditService.GetUserId();
+        //                entity.UpdatedDate = DateTime.UtcNow;
+        //            }
+        //        }
+        //    }
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity && (
-                e.State == EntityState.Added || 
-                e.State == EntityState.Modified
-                ));
+            var entries = ChangeTracker.Entries()
+                .Where(e => e.Entity is BaseEntity && (
+                    e.State == EntityState.Added ||
+                    e.State == EntityState.Modified));
+
+            var userId = _auditService.GetUserId() ?? "system"; // Asegura un valor por defecto
 
             foreach (var entry in entries)
             {
-                var entity = entry.Entity as BaseEntity;
+                var entity = (BaseEntity)entry.Entity;
 
-                if (entity != null)
+                if (entry.State == EntityState.Added)
                 {
-                    if (entry.State == EntityState.Added)
-                    {
-                        entity.CreatedBy = _auditService.GetUserId();
-                        entity.CreatedDate = DateTime.UtcNow;
-                    }
-                    else
-                    {
-                        entity.UpdatedBy = _auditService.GetUserId();
-                        entity.UpdatedDate = DateTime.UtcNow;
-                    }
+                    entity.CreatedBy = userId;
+                    entity.CreatedDate = DateTime.UtcNow;
+                }
+                else
+                {
+                    entry.Property("CreatedBy").IsModified = false;
+                    entry.Property("CreatedDate").IsModified = false;
+
+                    entity.UpdatedBy = userId;
+                    entity.UpdatedDate = DateTime.UtcNow;
                 }
             }
-            return base.SaveChangesAsync(cancellationToken);
+
+            try
+            {
+                return await base.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbUpdateException ex)
+            {
+                var sqlException = ex.InnerException as SqlException;
+                // Loggear el error SQL específico
+                throw new Exception($"Database error: {sqlException?.Message}");
+            }
         }
+
         //Aqui iran los DbSet de las entidades
         public DbSet<CustomerAssistantEntity> CustomerAssistants { get; set; }
         public DbSet<CustomerEntity> Customers { get; set; }

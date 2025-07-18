@@ -8,7 +8,9 @@ namespace panitab_backend.Database.Configuration.Administration
     {
         public void Configure(EntityTypeBuilder<OrderDetailEntity> builder)
         {
-            builder.Property(e => e.UnitPrice).HasPrecision(10, 2);
+            builder.Property(e => e.UnitPrice).HasPrecision(18, 2);
+
+            builder.HasIndex(od => new { od.OrderId, od.BreadClassId });
         }
     }
 }

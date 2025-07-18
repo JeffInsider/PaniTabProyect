@@ -12,10 +12,12 @@ namespace panitab_backend.Services
     {
         private readonly PaniTabContext _context;
         private readonly IMapper _mapper;
-        public CustomersService(PaniTabContext context, IMapper mapper) 
+        private readonly IAuditService _auditService;
+        public CustomersService(PaniTabContext context, IMapper mapper, IAuditService auditService)
         {
             _context = context;
             _mapper = mapper;
+            _auditService = auditService;
         }
 
         //obtener todos los Customers
@@ -25,16 +27,16 @@ namespace panitab_backend.Services
             {
                 var customerEntity = await _context.Customers.ToListAsync();
 
-                if (customerEntity == null || !customerEntity.Any())
-                {
-                    return new ResponseDto<List<CustomerDto>>
-                    {
-                        Status = false,
-                        StatusCode = 404,
-                        Message = "No se encontraron Customer registrados",
-                        Data = null
-                    };
-                }
+                //if (customerEntity == null || !customerEntity.Any())
+                //{
+                //    return new ResponseDto<List<CustomerDto>>
+                //    {
+                //        Status = false,
+                //        StatusCode = 200,
+                //        Message = "No se encontraron Customer registrados",
+                //        Data = null
+                //    };
+                //}
 
                 var customersDto = new List<CustomerDto>();
 
@@ -48,7 +50,7 @@ namespace panitab_backend.Services
                 {
                     Status = true,
                     StatusCode = 200,
-                    Message = "Customers encontrados",
+                    Message = customersDto.Any() ? "Customers encontrados" : "No hay customers registrados aún",
                     Data = customersDto
                 };
 
@@ -103,12 +105,12 @@ namespace panitab_backend.Services
                 };
             }
         }
-        //crear un Customer
+
+        // crear un Customer
         public async Task<ResponseDto<CustomerDto>> CreateCustomerAsync(CreateCustomerDto dto)
         {
             try
             {
-                //validar si el Customer ya existe
                 var customerExist = await _context.Customers.AnyAsync(x => x.IdentityNumber == dto.IdentityNumber);
 
                 if (customerExist)
@@ -124,24 +126,25 @@ namespace panitab_backend.Services
 
                 var customer = new CustomerEntity
                 {
+                    Id = Guid.NewGuid(),
                     IdentityNumber = dto.IdentityNumber,
                     FirstName = dto.FirstName,
                     LastName = dto.LastName,
                     PhoneNumber = dto.PhoneNumber,
-                    Balance = 0 //saldo inicial
+                    Balance = 0,
+                    IsActive = true,
+                    CreatedBy = _auditService.GetUserId() ?? "system" /// aqui se asigna el usuario que crea el Customer por eso no se pasa en el header
                 };
 
-                //guardar en la base de datos
                 await _context.Customers.AddAsync(customer);
                 await _context.SaveChangesAsync();
 
-                //mapear el Customer a CustomerDto
                 var customerDto = _mapper.Map<CustomerDto>(customer);
 
                 return new ResponseDto<CustomerDto>
                 {
                     Status = true,
-                    StatusCode = 201,
+                    StatusCode = 200,
                     Message = "Customer creado",
                     Data = customerDto
                 };
@@ -150,13 +153,14 @@ namespace panitab_backend.Services
             {
                 return new ResponseDto<CustomerDto>
                 {
-                    Data = new CustomerDto(),
-                    Message = ex.Message,
                     Status = false,
-                    StatusCode = 500
+                    StatusCode = 500,
+                    Message = $"Error completo: {ex.Message} - {ex.InnerException?.Message}",
+                    Data = null
                 };
             }
         }
+
         //actualizar un Customer
         public async Task<ResponseDto<CustomerDto>> UpdateCustomerAsync(Guid id, UpdateCustomerDto dto)
         {
@@ -175,10 +179,11 @@ namespace panitab_backend.Services
                     };
                 }
 
-                //customerEntity.IdentityNumber = dto.IdentityNumber;
+                customerEntity.IdentityNumber = dto.IdentityNumber;
                 customerEntity.FirstName = dto.FirstName;
                 customerEntity.LastName = dto.LastName;
                 customerEntity.PhoneNumber = dto.PhoneNumber;
+                customerEntity.Balance = dto.Balance;
 
                 _context.Customers.Update(customerEntity);
                 await _context.SaveChangesAsync();

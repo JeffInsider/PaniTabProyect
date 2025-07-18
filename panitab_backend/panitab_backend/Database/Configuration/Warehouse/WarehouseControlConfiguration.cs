@@ -8,21 +8,15 @@ namespace panitab_backend.Database.Configuration.Warehouse
     {
         public void Configure(EntityTypeBuilder<WarehouseControlEntity> builder)
         {
-            builder.HasOne(e => e.CreatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.CreatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
-
-            builder.HasOne(e => e.UpdatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.UpdatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
-
             // Aqui se establece que el numero de control es unico
             builder.HasIndex(e => e.ControlNumber)
                 .IsUnique();
+
+            builder.HasIndex(wc => wc.ClosingDate);
+
+            builder.Property(wc => wc.Status)
+                   .HasConversion<string>()
+                   .HasMaxLength(20);
         }
     }
 }

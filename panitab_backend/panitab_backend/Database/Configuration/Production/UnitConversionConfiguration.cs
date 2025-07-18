@@ -8,7 +8,7 @@ namespace panitab_backend.Database.Configuration.Production
     {
         public void Configure(EntityTypeBuilder<UnitConversionEntity> builder)
         {
-            builder.Property(e => e.ConversionFactor).HasPrecision(10, 2);
+            builder.Property(e => e.ConversionFactor).HasPrecision(18, 2);
         }
     }
 }

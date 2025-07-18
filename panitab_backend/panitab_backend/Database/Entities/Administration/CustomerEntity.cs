@@ -34,8 +34,5 @@ namespace panitab_backend.Database.Entities.Administration
 
         public virtual ICollection<OrderEntity> Orders { get; set; }
 
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
-
     }
 }

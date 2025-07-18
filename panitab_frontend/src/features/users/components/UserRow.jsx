@@ -4,6 +4,7 @@ import { ProtectedComponent } from "../../../shared/components/ProtectedComponen
 import { rolesListConstant } from "../../../shared/constants/roles-list.constants";
 
 export const UserRow = ({ user }) => {
+    //console.log(user);
     return (
         <tr className="hover:bg-[#f4f0eb] transition-colors duration-300 ease-in-out">
             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.firstName}</td>

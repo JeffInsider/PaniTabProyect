@@ -18,5 +18,6 @@ namespace panitab_backend.Dtos.Customer
 
         [StringLength(50)]
         public string PhoneNumber { get; set; }
+
     }
 }

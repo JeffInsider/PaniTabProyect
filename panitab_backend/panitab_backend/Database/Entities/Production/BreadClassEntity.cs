@@ -26,7 +26,7 @@ namespace panitab_backend.Database.Entities.Production
         [Required]
         public decimal BreadsPerTray { get; set; } // panes por lata
 
-        [Column("breads_per_bag")]
+        [Column ("breads_per_bag")]
         [Required]
         public int BreadsPerBag { get; set; } // panes por bolsa
 
@@ -55,11 +55,6 @@ namespace panitab_backend.Database.Entities.Production
 
         // Relación de "uno a muchos" con OrderDetail
         public virtual ICollection<OrderDetailEntity> OrderDetails { get; set; }
-
-        // Colecciones agregadas para acceder a los detalles de control y movimiento
-        //public ICollection<WarehouseControlDetailEntity> WarehouseControlDetails { get; set; }
-        //public ICollection<WarehouseMovementDetailEntity> WarehouseMovementDetails { get; set; }
-
 
     }
 }

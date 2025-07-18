@@ -8,17 +8,8 @@ namespace panitab_backend.Database.Configuration.Warehouse
     {
         public void Configure(EntityTypeBuilder<WarehouseMovementEntity> builder)
         {
-            builder.HasOne(e => e.CreatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.CreatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
-
-            builder.HasOne(e => e.UpdatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.UpdatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
+            builder.HasIndex(wm => wm.MovementNumber).IsUnique();
+            builder.HasIndex(wm => wm.MovementDate);
         }
     }
 }

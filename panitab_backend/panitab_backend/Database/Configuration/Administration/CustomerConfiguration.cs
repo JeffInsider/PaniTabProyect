@@ -8,19 +8,14 @@ namespace panitab_backend.Database.Configuration.Administration
     {
         public void Configure(EntityTypeBuilder<CustomerEntity> builder)
         {
-            builder.HasOne(e => e.CreatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.CreatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
+            builder.Property(e => e.Balance).HasPrecision(18, 2);
 
-            builder.HasOne(e => e.UpdatedByUser)
-                .WithMany()
-                .HasForeignKey(e => e.UpdatedBy)
-                .HasPrincipalKey(e => e.Id)
-                .IsRequired();
+            // Opcional: añade índices para mejorar consultas
+            builder.HasIndex(e => e.IdentityNumber).IsUnique();
+            builder.HasIndex(e => e.PhoneNumber);
+            builder.HasIndex(e => e.IsActive);
 
-            builder.Property(e => e.Balance).HasPrecision(10, 2);
+            //builder.HasQueryFilter(c => c.IsActive); // Filtro global para solo incluir clientes activos
         }
     }
 }

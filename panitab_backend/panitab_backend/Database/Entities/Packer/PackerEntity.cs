@@ -29,5 +29,8 @@ namespace panitab_backend.Database.Entities.Packer
         // Agregar esta colección para los pagos del empacador
         public virtual ICollection<PackerPaymentEntity> PackerPayments { get; set; } // Relación con pagos del empacador
 
+        // En PackerEntity.cs
+        public virtual ICollection<PackingPackerEntity> PackingPackers { get; set; }
+
     }
 }

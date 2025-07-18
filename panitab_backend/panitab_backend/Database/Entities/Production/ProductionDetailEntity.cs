@@ -41,8 +41,14 @@ namespace panitab_backend.Database.Entities.Production
         [Column("difference")]
         public int Difference { get; set; } // Diferencia en latas
 
-        [Column("status")]
-        [StringLength(20)]
-        public string Status { get; set; } // Estado (Ej: "Completado", "Pendiente")
+        public enum ProductionStatus
+        {
+            Pending,
+            Completed,
+            Cancelled
+        }
+        [Column("production_status")]
+        [Required]
+        public ProductionStatus Status { get; set; } = ProductionStatus.Pending; // Estado de la producción
     }
 }

@@ -36,8 +36,16 @@ namespace panitab_backend.Database.Entities.Production
         [Column("balance")]
         public decimal Balance { get; set; } // Saldo a pagar al proveedor
 
-        [Column("payment_status")]
-        public bool PaymentStatus { get; set; } = false; // Si se pagó o no
+        public enum MaterialStatus
+        {
+            Pending,
+            Completed,
+            Cancelled
+        }
+
+        [Column("purchase_status")]
+        [Required]
+        public MaterialStatus PurchaseStatus { get; set; } = MaterialStatus.Pending; // Estado de la compra
 
         [Column("measure_unit")]
         [StringLength(50)]

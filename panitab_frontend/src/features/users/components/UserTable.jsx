@@ -15,9 +15,17 @@ export const UserTable = ({users}) => {
                     </tr>
                 </thead>
                 <tbody className="divide-y">
-                    {users.map((user) => (
-                        <UserRow key={user.id} user={user} />
-                    ))}
+                    {users.length === 0 ? (
+                        <tr>
+                            <td colSpan="7" className="text-center py-4 text-gray-500">
+                                No hay clientes registrados todavía.
+                            </td>
+                        </tr>
+                    ) : (
+                        users.map((user) => (
+                            <UserRow key={user.id} user={user} />
+                        ))
+                    )}
                 </tbody>
             </table>
         </div>

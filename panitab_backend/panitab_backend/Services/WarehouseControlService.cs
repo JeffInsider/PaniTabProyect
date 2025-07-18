@@ -125,7 +125,7 @@ namespace panitab_backend.Services
 
                 // Verificar si ya existe un control abierto para la fecha
                 var existingControl = await _context.WarehouseControls
-                    .Where(c => !c.IsCompleted && c.ClosingDate.Date == dto.ClosingDate.Date)
+                    //.Where(c => !c.IsCompleted && c.ClosingDate.Date == dto.ClosingDate.Date)
                     .FirstOrDefaultAsync();
 
                 if (existingControl != null)
@@ -144,7 +144,7 @@ namespace panitab_backend.Services
                     ControlNumber = controlNumber, //usar el numero secuencial
                     ClosingDate = dto.ClosingDate,
                     Observations = dto.Observations,
-                    IsCompleted = false,
+                    //IsCompleted = false,
                     CreatedDate = DateTime.Now,
                     WarehouseControlDetails = new List<WarehouseControlDetailEntity>()
                 };
@@ -275,7 +275,7 @@ namespace panitab_backend.Services
                 };
             }
             //verificar que el control no este cerrado
-            if (control.IsCompleted)
+            //if (control.IsCompleted)
             {
                 return new ResponseDto<WarehouseControlDto>
                 {
@@ -306,7 +306,7 @@ namespace panitab_backend.Services
                 detail.Difference = 0; // Se reinician las diferencias
             }
 
-            control.IsCompleted = true;
+            //control.IsCompleted = true;
             control.LastClosingDate = DateTime.UtcNow; // Fecha de cierre
 
             await _context.SaveChangesAsync();
@@ -340,7 +340,7 @@ namespace panitab_backend.Services
             }
 
             // si el control esta cerrado y el usuario no es ADMIN, bloquear la actualización
-            if (control.IsCompleted && userRole != RolesConstant.ADMIN)
+            //if (control.IsCompleted && userRole != RolesConstant.ADMIN)
             {
                 return new ResponseDto<WarehouseControlDto>
                 {

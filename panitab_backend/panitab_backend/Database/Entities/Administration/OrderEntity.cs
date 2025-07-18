@@ -53,7 +53,5 @@ namespace panitab_backend.Database.Entities.Administration
 
         public virtual ICollection<OrderDetailEntity> OrderDetails { get; set; }
         public virtual ICollection<OrderEntity> refills { get; set; } = new List<OrderEntity>(); //recargas
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
     }
 }

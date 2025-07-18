@@ -15,7 +15,5 @@ namespace panitab_backend.Database.Entities.Warehouse
         public DateTime MovementDate { get; set; }
 
         public virtual ICollection<WarehouseMovementDetailEntity> WarehouseMovementDetails { get; set; }
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
     }
 }

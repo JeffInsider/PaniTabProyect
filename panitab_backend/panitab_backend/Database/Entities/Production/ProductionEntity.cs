@@ -15,11 +15,17 @@ namespace panitab_backend.Database.Entities.Production
         [Required]
         public DateTime ProductionDate { get; set; }
 
-        [Column("is_completed")]
-        public bool IsCompleted { get; set; } = false; // Estado (Ej: "En proceso", "Finalizado")
+        public enum ProductionStatus
+        {
+            Pending,
+            InProgress,
+            Completed,
+            Cancelled
+        }
+        [Column("status")]
+        [Required]
+        public ProductionStatus Status { get; set; } = ProductionStatus.Pending;
 
         public virtual ICollection<ProductionDetailEntity> ProductionDetails { get; set; }
-        public virtual UserEntity CreatedByUser { get; set; }
-        public virtual UserEntity UpdatedByUser { get; set; }
     }
 }

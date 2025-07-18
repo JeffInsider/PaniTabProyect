@@ -12,6 +12,7 @@ namespace panitab_backend.Helpers
         public AutoMapperProfile()
         {
             MapsForUsers();
+            MapsForCustomers();
         }
 
         public void MapsForUsers() 

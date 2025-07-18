@@ -26,12 +26,12 @@ namespace panitab_backend.Migrations
                     identity_number = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     first_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     last_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    balance = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    balance = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,22 +46,44 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    trays_per_quintal = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    breads_per_tray = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    trays_per_quintal = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    breads_per_tray = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     breads_per_bag = table.Column<int>(type: "int", nullable: false),
-                    price_per_quintal = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    packaging_price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    customer_price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    public_price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    price_per_quintal = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    packaging_price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    customer_price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    public_price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bread_class", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "customer",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    identity_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    first_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    last_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    phone_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    balance = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    is_active = table.Column<bool>(type: "bit", nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_customer", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,13 +94,13 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    current_stock = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    current_stock = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     measure_unit = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -95,14 +117,33 @@ namespace panitab_backend.Migrations
                     first_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     last_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_packer", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "production",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    production_number = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    production_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_production", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -129,11 +170,11 @@ namespace panitab_backend.Migrations
                     name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     contact = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    balance = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    balance = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -172,6 +213,45 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "warehouse_control",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    control_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    control_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    observations = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    last_closing_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_warehouse_control", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "warehouse_movement",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    movement_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    MovementDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_warehouse_movement", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "baker_payment",
                 schema: "dbo",
                 columns: table => new
@@ -179,15 +259,15 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     baker_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
                     payment_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    total_arrobas = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    amount_paid = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    payment_completed = table.Column<bool>(type: "bit", nullable: false),
-                    balance_adjustment = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    total_arrobas = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    amount_paid = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    payment_status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    balance_adjustment = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     last_production_paid = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -202,6 +282,31 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "customer_assistant",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    customer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    assistant_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_customer_assistant", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_customer_assistant_customer_customer_id",
+                        column: x => x.customer_id,
+                        principalSchema: "dbo",
+                        principalTable: "customer",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "bread_class_materials",
                 schema: "dbo",
                 columns: table => new
@@ -209,12 +314,12 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     bread_class_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     material_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    quantity_used = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    quantity_used = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     measure_unit = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -244,11 +349,11 @@ namespace panitab_backend.Migrations
                     material_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     from_unit = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     to_unit = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    conversion_factor = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    conversion_factor = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -271,13 +376,13 @@ namespace panitab_backend.Migrations
                     packer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     payment_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     total_bags_packed = table.Column<int>(type: "int", nullable: false),
-                    amount_paid = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    amount_paid = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     payment_completed = table.Column<bool>(type: "bit", maxLength: 20, nullable: false),
                     last_packing_paid = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -287,6 +392,77 @@ namespace panitab_backend.Migrations
                         column: x => x.packer_id,
                         principalSchema: "dbo",
                         principalTable: "packer",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "packing",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    packing_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    packing_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    PackerEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_packing", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_packing_packer_PackerEntityId",
+                        column: x => x.PackerEntityId,
+                        principalSchema: "dbo",
+                        principalTable: "packer",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "production_detail",
+                schema: "dbo",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    production_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
+                    baker_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
+                    bread_class_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
+                    quantity_arrobas = table.Column<int>(type: "int", nullable: false),
+                    quantity_latas = table.Column<int>(type: "int", nullable: false),
+                    difference = table.Column<int>(type: "int", nullable: false),
+                    production_status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_production_detail", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_production_detail_baker_baker_id",
+                        column: x => x.baker_id,
+                        principalSchema: "dbo",
+                        principalTable: "baker",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_production_detail_bread_class_bread_class_id",
+                        column: x => x.bread_class_id,
+                        principalSchema: "dbo",
+                        principalTable: "bread_class",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_production_detail_production_production_id",
+                        column: x => x.production_id,
+                        principalSchema: "dbo",
+                        principalTable: "production",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -323,15 +499,15 @@ namespace panitab_backend.Migrations
                     material_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     supplier_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     purchase_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    unit_price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    quantity_purchased = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    balance = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    payment_status = table.Column<bool>(type: "bit", nullable: false),
+                    unit_price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    quantity_purchased = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    balance = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    purchase_status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     measure_unit = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -360,13 +536,13 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     supplier_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     payment_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    amount_paid = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    amount_paid = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     payment_method = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    balance_remaining = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    balance_remaining = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -377,116 +553,6 @@ namespace panitab_backend.Migrations
                         principalSchema: "dbo",
                         principalTable: "supplier",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "customer",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    identity_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    first_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    last_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    phone_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    balance = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    is_active = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_customer", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_customer_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_customer_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "packing",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    packing_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    packing_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    is_completed = table.Column<bool>(type: "bit", nullable: false),
-                    PackerEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_packing", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_packing_packer_PackerEntityId",
-                        column: x => x.PackerEntityId,
-                        principalSchema: "dbo",
-                        principalTable: "packer",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_packing_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_packing_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "production",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    production_number = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
-                    production_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    is_completed = table.Column<bool>(type: "bit", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_production", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_production_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_production_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -585,93 +651,47 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "warehouse_control",
+                name: "order",
                 schema: "dbo",
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    control_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    control_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    observations = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    is_completed = table.Column<bool>(type: "bit", nullable: false),
-                    last_closing_date = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_warehouse_control", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_warehouse_control_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_warehouse_control_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "warehouse_movement",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    movement_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MovementDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_warehouse_movement", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_warehouse_movement_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_warehouse_movement_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "customer_assistant",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    order_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    order_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     customer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    assistant_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    assistant_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    total_amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    outstanding_balance = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    order_type = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    is_paid = table.Column<bool>(type: "bit", nullable: false),
+                    parent_order_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_customer_assistant", x => x.id);
+                    table.PrimaryKey("PK_order", x => x.id);
                     table.ForeignKey(
-                        name: "FK_customer_assistant_customer_customer_id",
+                        name: "FK_order_customer_assistant_assistant_id",
+                        column: x => x.assistant_id,
+                        principalSchema: "dbo",
+                        principalTable: "customer_assistant",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_order_customer_customer_id",
                         column: x => x.customer_id,
                         principalSchema: "dbo",
                         principalTable: "customer",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_order_order_parent_order_id",
+                        column: x => x.parent_order_id,
+                        principalSchema: "dbo",
+                        principalTable: "order",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -689,10 +709,10 @@ namespace panitab_backend.Migrations
                     damaged_in_packing = table.Column<int>(type: "int", nullable: false),
                     description_damaged = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     difference = table.Column<int>(type: "int", nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -721,150 +741,6 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "production_detail",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    production_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
-                    baker_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
-                    bread_class_id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 50, nullable: false),
-                    quantity_arrobas = table.Column<int>(type: "int", nullable: false),
-                    quantity_latas = table.Column<int>(type: "int", nullable: false),
-                    difference = table.Column<int>(type: "int", nullable: false),
-                    status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_production_detail", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_production_detail_baker_baker_id",
-                        column: x => x.baker_id,
-                        principalSchema: "dbo",
-                        principalTable: "baker",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_production_detail_bread_class_bread_class_id",
-                        column: x => x.bread_class_id,
-                        principalSchema: "dbo",
-                        principalTable: "bread_class",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_production_detail_production_production_id",
-                        column: x => x.production_id,
-                        principalSchema: "dbo",
-                        principalTable: "production",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "order",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    order_number = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    order_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    customer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    assistant_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    total_amount = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    outstanding_balance = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    order_type = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    is_paid = table.Column<bool>(type: "bit", nullable: false),
-                    parent_order_id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_order", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_order_customer_assistant_assistant_id",
-                        column: x => x.assistant_id,
-                        principalSchema: "dbo",
-                        principalTable: "customer_assistant",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_order_customer_customer_id",
-                        column: x => x.customer_id,
-                        principalSchema: "dbo",
-                        principalTable: "customer",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_order_order_parent_order_id",
-                        column: x => x.parent_order_id,
-                        principalSchema: "dbo",
-                        principalTable: "order",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_order_users_created_by",
-                        column: x => x.created_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_order_users_updated_by",
-                        column: x => x.updated_by,
-                        principalSchema: "Security",
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "packing_packer",
-                schema: "dbo",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    packing_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    packer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PackingDetailEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_packing_packer", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_packing_packer_packer_packer_id",
-                        column: x => x.packer_id,
-                        principalSchema: "dbo",
-                        principalTable: "packer",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_packing_packer_packing_detail_PackingDetailEntityId",
-                        column: x => x.PackingDetailEntityId,
-                        principalSchema: "dbo",
-                        principalTable: "packing_detail",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_packing_packer_packing_packing_id",
-                        column: x => x.packing_id,
-                        principalSchema: "dbo",
-                        principalTable: "packing",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "order_detail",
                 schema: "dbo",
                 columns: table => new
@@ -873,11 +749,11 @@ namespace panitab_backend.Migrations
                     order_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     bread_class_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     quantity = table.Column<int>(type: "int", nullable: false),
-                    unit_price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    unit_price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -919,10 +795,10 @@ namespace panitab_backend.Migrations
                     difference = table.Column<int>(type: "int", nullable: false),
                     shortage = table.Column<int>(type: "int", nullable: true),
                     excess = table.Column<int>(type: "int", nullable: true),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -958,6 +834,46 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "packing_packer",
+                schema: "dbo",
+                columns: table => new
+                {
+                    packing_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    packer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PackingDetailEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_packing_packer", x => new { x.packing_id, x.packer_id });
+                    table.ForeignKey(
+                        name: "FK_packing_packer_packer_packer_id",
+                        column: x => x.packer_id,
+                        principalSchema: "dbo",
+                        principalTable: "packer",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_packing_packer_packing_detail_PackingDetailEntityId",
+                        column: x => x.PackingDetailEntityId,
+                        principalSchema: "dbo",
+                        principalTable: "packing_detail",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_packing_packer_packing_packing_id",
+                        column: x => x.packing_id,
+                        principalSchema: "dbo",
+                        principalTable: "packing",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "warehouse_movement_detail",
                 schema: "dbo",
                 columns: table => new
@@ -967,12 +883,12 @@ namespace panitab_backend.Migrations
                     warehouse_control_detail_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     bread_class_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     quantity = table.Column<int>(type: "int", nullable: false),
-                    movement_type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    movement_type = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     observations = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
+                    created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1001,10 +917,48 @@ namespace panitab_backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_baker_identity_number",
+                schema: "dbo",
+                table: "baker",
+                column: "identity_number",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_baker_is_active",
+                schema: "dbo",
+                table: "baker",
+                column: "is_active");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_baker_payment_baker_id",
                 schema: "dbo",
                 table: "baker_payment",
                 column: "baker_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_baker_payment_payment_date",
+                schema: "dbo",
+                table: "baker_payment",
+                column: "payment_date");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bread_class_category",
+                schema: "dbo",
+                table: "bread_class",
+                column: "category");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bread_class_is_active",
+                schema: "dbo",
+                table: "bread_class",
+                column: "is_active");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bread_class_name",
+                schema: "dbo",
+                table: "bread_class",
+                column: "name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_bread_class_materials_bread_class_id",
@@ -1019,16 +973,23 @@ namespace panitab_backend.Migrations
                 column: "material_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_customer_created_by",
+                name: "IX_customer_identity_number",
                 schema: "dbo",
                 table: "customer",
-                column: "created_by");
+                column: "identity_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_customer_updated_by",
+                name: "IX_customer_is_active",
                 schema: "dbo",
                 table: "customer",
-                column: "updated_by");
+                column: "is_active");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_customer_phone_number",
+                schema: "dbo",
+                table: "customer",
+                column: "phone_number");
 
             migrationBuilder.CreateIndex(
                 name: "IX_customer_assistant_customer_id",
@@ -1037,10 +998,35 @@ namespace panitab_backend.Migrations
                 column: "customer_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_material_category",
+                schema: "dbo",
+                table: "material",
+                column: "category");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_material_is_active",
+                schema: "dbo",
+                table: "material",
+                column: "is_active");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_material_name",
+                schema: "dbo",
+                table: "material",
+                column: "name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_material_purchase_material_id",
                 schema: "dbo",
                 table: "material_purchase",
                 column: "material_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_material_purchase_purchase_date",
+                schema: "dbo",
+                table: "material_purchase",
+                column: "purchase_date");
 
             migrationBuilder.CreateIndex(
                 name: "IX_material_purchase_supplier_id",
@@ -1055,16 +1041,23 @@ namespace panitab_backend.Migrations
                 column: "assistant_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_created_by",
+                name: "IX_order_customer_id_order_date",
                 schema: "dbo",
                 table: "order",
-                column: "created_by");
+                columns: new[] { "customer_id", "order_date" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_customer_id",
+                name: "IX_order_is_paid",
                 schema: "dbo",
                 table: "order",
-                column: "customer_id");
+                column: "is_paid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_order_order_number",
+                schema: "dbo",
+                table: "order",
+                column: "order_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_order_parent_order_id",
@@ -1073,22 +1066,29 @@ namespace panitab_backend.Migrations
                 column: "parent_order_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_updated_by",
-                schema: "dbo",
-                table: "order",
-                column: "updated_by");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_order_detail_bread_class_id",
                 schema: "dbo",
                 table: "order_detail",
                 column: "bread_class_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_detail_order_id",
+                name: "IX_order_detail_order_id_bread_class_id",
                 schema: "dbo",
                 table: "order_detail",
-                column: "order_id");
+                columns: new[] { "order_id", "bread_class_id" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_packer_identity_number",
+                schema: "dbo",
+                table: "packer",
+                column: "identity_number",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_packer_is_active",
+                schema: "dbo",
+                table: "packer",
+                column: "is_active");
 
             migrationBuilder.CreateIndex(
                 name: "IX_packer_payment_packer_id",
@@ -1097,10 +1097,10 @@ namespace panitab_backend.Migrations
                 column: "packer_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_packing_created_by",
+                name: "IX_packer_payment_payment_date",
                 schema: "dbo",
-                table: "packing",
-                column: "created_by");
+                table: "packer_payment",
+                column: "payment_date");
 
             migrationBuilder.CreateIndex(
                 name: "IX_packing_PackerEntityId",
@@ -1109,10 +1109,17 @@ namespace panitab_backend.Migrations
                 column: "PackerEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_packing_updated_by",
+                name: "IX_packing_packing_date",
                 schema: "dbo",
                 table: "packing",
-                column: "updated_by");
+                column: "packing_date");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_packing_packing_number",
+                schema: "dbo",
+                table: "packing",
+                column: "packing_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_packing_detail_bread_class_id",
@@ -1121,10 +1128,10 @@ namespace panitab_backend.Migrations
                 column: "bread_class_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_packing_detail_packing_id",
+                name: "IX_packing_detail_packing_id_bread_class_id",
                 schema: "dbo",
                 table: "packing_detail",
-                column: "packing_id");
+                columns: new[] { "packing_id", "bread_class_id" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_packing_detail_production_id",
@@ -1139,28 +1146,23 @@ namespace panitab_backend.Migrations
                 column: "packer_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_packing_packer_packing_id",
-                schema: "dbo",
-                table: "packing_packer",
-                column: "packing_id");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_packing_packer_PackingDetailEntityId",
                 schema: "dbo",
                 table: "packing_packer",
                 column: "PackingDetailEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_production_created_by",
+                name: "IX_production_production_date",
                 schema: "dbo",
                 table: "production",
-                column: "created_by");
+                column: "production_date");
 
             migrationBuilder.CreateIndex(
-                name: "IX_production_updated_by",
+                name: "IX_production_production_number",
                 schema: "dbo",
                 table: "production",
-                column: "updated_by");
+                column: "production_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_production_detail_baker_id",
@@ -1175,10 +1177,10 @@ namespace panitab_backend.Migrations
                 column: "bread_class_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_production_detail_production_id",
+                name: "IX_production_detail_production_id_bread_class_id",
                 schema: "dbo",
                 table: "production_detail",
-                column: "production_id");
+                columns: new[] { "production_id", "bread_class_id" });
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
@@ -1193,6 +1195,24 @@ namespace panitab_backend.Migrations
                 schema: "Security",
                 table: "roles_claims",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_supplier_name",
+                schema: "dbo",
+                table: "supplier",
+                column: "name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_supplier_phone",
+                schema: "dbo",
+                table: "supplier",
+                column: "phone");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_supplier_payment_payment_date",
+                schema: "dbo",
+                table: "supplier_payment",
+                column: "payment_date");
 
             migrationBuilder.CreateIndex(
                 name: "IX_supplier_payment_supplier_id",
@@ -1239,16 +1259,17 @@ namespace panitab_backend.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_control_created_by",
+                name: "IX_warehouse_control_control_date",
                 schema: "dbo",
                 table: "warehouse_control",
-                column: "created_by");
+                column: "control_date");
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_control_updated_by",
+                name: "IX_warehouse_control_control_number",
                 schema: "dbo",
                 table: "warehouse_control",
-                column: "updated_by");
+                column: "control_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_warehouse_control_detail_bread_class_id",
@@ -1269,22 +1290,23 @@ namespace panitab_backend.Migrations
                 column: "packing_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_control_detail_warehouse_control_id",
+                name: "IX_warehouse_control_detail_warehouse_control_id_bread_class_id",
                 schema: "dbo",
                 table: "warehouse_control_detail",
-                column: "warehouse_control_id");
+                columns: new[] { "warehouse_control_id", "bread_class_id" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_movement_created_by",
+                name: "IX_warehouse_movement_movement_number",
                 schema: "dbo",
                 table: "warehouse_movement",
-                column: "created_by");
+                column: "movement_number",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_movement_updated_by",
+                name: "IX_warehouse_movement_MovementDate",
                 schema: "dbo",
                 table: "warehouse_movement",
-                column: "updated_by");
+                column: "MovementDate");
 
             migrationBuilder.CreateIndex(
                 name: "IX_warehouse_movement_detail_bread_class_id",
@@ -1299,10 +1321,10 @@ namespace panitab_backend.Migrations
                 column: "warehouse_control_detail_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_warehouse_movement_detail_warehouse_movement_id",
+                name: "IX_warehouse_movement_detail_warehouse_movement_id_bread_class_id",
                 schema: "dbo",
                 table: "warehouse_movement_detail",
-                column: "warehouse_movement_id");
+                columns: new[] { "warehouse_movement_id", "bread_class_id" });
         }
 
         /// <inheritdoc />
@@ -1389,6 +1411,10 @@ namespace panitab_backend.Migrations
                 schema: "Security");
 
             migrationBuilder.DropTable(
+                name: "users",
+                schema: "Security");
+
+            migrationBuilder.DropTable(
                 name: "warehouse_control_detail",
                 schema: "dbo");
 
@@ -1427,10 +1453,6 @@ namespace panitab_backend.Migrations
             migrationBuilder.DropTable(
                 name: "customer",
                 schema: "dbo");
-
-            migrationBuilder.DropTable(
-                name: "users",
-                schema: "Security");
         }
     }
 }
