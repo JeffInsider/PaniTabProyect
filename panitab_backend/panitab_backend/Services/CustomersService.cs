@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using panitab_backend.Database;
 using panitab_backend.Database.Entities.Administration;
 using panitab_backend.Dtos;
-using panitab_backend.Dtos.Customer;
+using panitab_backend.Dtos.Administration.Customer;
 using panitab_backend.Services.Interfaces;
 
 namespace panitab_backend.Services
@@ -126,13 +126,13 @@ namespace panitab_backend.Services
 
                 var customer = new CustomerEntity
                 {
-                    Id = Guid.NewGuid(),
+                    //Id = Guid.NewGuid(),
                     IdentityNumber = dto.IdentityNumber,
                     FirstName = dto.FirstName,
                     LastName = dto.LastName,
                     PhoneNumber = dto.PhoneNumber,
                     Balance = 0,
-                    IsActive = true,
+                    //IsActive = true,
                     CreatedBy = _auditService.GetUserId() ?? "system" /// aqui se asigna el usuario que crea el Customer por eso no se pasa en el header
                 };
 

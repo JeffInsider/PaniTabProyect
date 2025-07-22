@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("panitab_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4664733e04948d4d75c7002977cf15c216c71ab1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25ced30eb518934b68820f2491c44df5d830a5b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("panitab_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("panitab_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

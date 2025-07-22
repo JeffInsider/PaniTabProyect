@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace panitab_backend.Dtos.Customer
+namespace panitab_backend.Dtos.Administration.Customer
 {
     public class CreateCustomerDto
     {

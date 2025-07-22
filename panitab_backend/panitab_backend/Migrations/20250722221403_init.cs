@@ -289,6 +289,7 @@ namespace panitab_backend.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     customer_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     assistant_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_active = table.Column<bool>(type: "bit", nullable: false),
                     created_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: true),

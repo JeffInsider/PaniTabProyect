@@ -248,11 +248,6 @@ C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\panitab_backend.sourcelink.json
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.build.json
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.development.json
-C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets\msbuild.panitab_backend.Microsoft.AspNetCore.StaticWebAssets.props
-C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets\msbuild.build.panitab_backend.props
-C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.panitab_backend.props
-C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.panitab_backend.props
-C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.pack.json
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\scopedcss\bundle\panitab_backend.styles.css
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\panitab_.648AFDE7.Up2Date
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\panitab_backend.dll
@@ -287,3 +282,11 @@ C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\bin\Debug\net
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\bin\Debug\net8.0\panitab_backend.staticwebassets.endpoints.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\ProyectoPaniTab\ProyectoPanitab\panitab_backend\panitab_backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

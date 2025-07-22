@@ -1,5 +1,5 @@
 ﻿using panitab_backend.Dtos;
-using panitab_backend.Dtos.Customer;
+using panitab_backend.Dtos.Administration.Customer;
 
 namespace panitab_backend.Services.Interfaces
 {

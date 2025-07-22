@@ -12,7 +12,7 @@ using panitab_backend.Database;
 namespace panitab_backend.Migrations
 {
     [DbContext(typeof(PaniTabContext))]
-    [Migration("20250718214637_init")]
+    [Migration("20250722221403_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -184,6 +184,10 @@ namespace panitab_backend.Migrations
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("customer_id");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasColumnName("is_active");
 
                     b.Property<string>("UpdatedBy")
                         .HasMaxLength(450)

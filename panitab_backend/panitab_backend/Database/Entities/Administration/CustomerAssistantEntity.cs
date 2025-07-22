@@ -13,5 +13,9 @@ namespace panitab_backend.Database.Entities.Administration
 
         [Column("assistant_name")]
         public string AssistantName { get; set; }
+
+        //agregar is active
+        [Column("is_active")]
+        public bool IsActive { get; set; } = true;
     }
 }

@@ -5,7 +5,7 @@ using panitab_backend.Constants;
 using panitab_backend.Database;
 using panitab_backend.Database.Entities;
 using panitab_backend.Dtos;
-using panitab_backend.Dtos.Customer;
+using panitab_backend.Dtos.Administration.Customer;
 using panitab_backend.Dtos.Users;
 using panitab_backend.Services.Interfaces;
 

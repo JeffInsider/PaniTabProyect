@@ -1,4 +1,4 @@
-﻿namespace panitab_backend.Dtos.Customer
+﻿namespace panitab_backend.Dtos.Administration.Customer
 {
     public class CustomerDto
     {

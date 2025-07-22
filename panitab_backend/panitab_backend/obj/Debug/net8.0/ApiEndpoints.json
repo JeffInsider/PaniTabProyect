@@ -61,7 +61,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[System.Collections.Generic.List\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -81,13 +81,13 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "panitab_backend.Dtos.Customer.CreateCustomerDto",
+        "Type": "panitab_backend.Dtos.Administration.Customer.CreateCustomerDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -113,7 +113,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -138,13 +138,13 @@
       },
       {
         "Name": "dto",
-        "Type": "panitab_backend.Dtos.Customer.UpdateCustomerDto",
+        "Type": "panitab_backend.Dtos.Administration.Customer.UpdateCustomerDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -170,7 +170,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -196,7 +196,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "panitab_backend.Dtos.ResponseDto\u00601[[panitab_backend.Dtos.Administration.Customer.CustomerDto, panitab_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

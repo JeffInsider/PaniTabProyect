@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using panitab_backend.Constants;
 using panitab_backend.Dtos;
-using panitab_backend.Dtos.Customer;
+using panitab_backend.Dtos.Administration.Customer;
 using panitab_backend.Services.Interfaces;
 
 namespace panitab_backend.Controllers

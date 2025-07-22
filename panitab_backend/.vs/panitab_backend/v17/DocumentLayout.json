@@ -1,12 +1,141 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\customersassistantsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\customersassistantsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\usersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\customersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\customersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\services\\interfaces\\icustomersassistantsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\services\\interfaces\\icustomersassistantsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\administration\\customerassistant\\updatecustomerassistantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\administration\\customerassistant\\updatecustomerassistantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|c:\\proyectopanitab\\proyectopanitab\\panitab_backend\\panitab_backend\\dtos\\administration\\customerassistant\\customerassistantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6430A4B1-279D-440C-9F44-5435D1B9FBD8}|panitab_backend\\panitab_backend.csproj|solutionrelative:panitab_backend\\dtos\\administration\\customerassistant\\customerassistantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\UsersService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\UsersService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\UsersService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\UsersService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T22:13:24.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateCustomerAssistantDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Administration\\CustomerAssistant\\UpdateCustomerAssistantDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Administration\\CustomerAssistant\\UpdateCustomerAssistantDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Administration\\CustomerAssistant\\UpdateCustomerAssistantDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Administration\\CustomerAssistant\\UpdateCustomerAssistantDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T22:08:03.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomersAssistantsService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\CustomersAssistantsService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\CustomersAssistantsService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\CustomersAssistantsService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\CustomersAssistantsService.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAiwH0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T16:08:57.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICustomersAssistantsService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\ICustomersAssistantsService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\Interfaces\\ICustomersAssistantsService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\Interfaces\\ICustomersAssistantsService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\Interfaces\\ICustomersAssistantsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T16:09:36.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomerAssistantDto.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Administration\\CustomerAssistant\\CustomerAssistantDto.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Dtos\\Administration\\CustomerAssistant\\CustomerAssistantDto.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Dtos\\Administration\\CustomerAssistant\\CustomerAssistantDto.cs",
+              "RelativeToolTip": "panitab_backend\\Dtos\\Administration\\CustomerAssistant\\CustomerAssistantDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T22:07:48.112Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "d3521a5b-6a40-4fa3-ac5a-58dbbad8c30f",
+        "Display": 0,
+        "X": 1269,
+        "Y": 80,
+        "Width": 1907,
+        "Height": 965,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomersService.cs",
+              "DocumentMoniker": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\CustomersService.cs",
+              "RelativeDocumentMoniker": "panitab_backend\\Services\\CustomersService.cs",
+              "ToolTip": "C:\\ProyectoPaniTab\\ProyectoPanitab\\panitab_backend\\panitab_backend\\Services\\CustomersService.cs",
+              "RelativeToolTip": "panitab_backend\\Services\\CustomersService.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAwwG0AAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T16:10:43.646Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
